@@ -346,10 +346,77 @@
       gap: 2rem;
     }
 
-    @media (max-width: 600px) {
+    /* HAMBURGER MENU */
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--brown);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* TABLET */
+    @media (max-width: 900px) {
+      .types-grid { grid-template-columns: repeat(2, 1fr); }
+      .facts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      /* Nav */
+      .nav-toggle { display: flex; }
+      nav ul {
+        display: none;
+        position: fixed;
+        top: 57px; left: 0; right: 0;
+        background: rgba(253, 246, 236, 0.98);
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        padding: 1rem 0 1.5rem;
+        border-bottom: 1px solid #e8d5b7;
+        box-shadow: 0 8px 24px rgba(74,44,10,0.08);
+      }
+      nav ul.open { display: flex; }
+      nav ul li { width: 100%; text-align: center; }
+      nav ul li a { display: block; padding: 0.75rem 2rem; font-size: 1rem; }
+
+      /* Hero */
+      .hero { padding: 5rem 1.5rem 3rem; min-height: auto; }
+      .hero p { font-size: 1rem; }
+      .hero-btn { padding: 0.85rem 2rem; }
+
+      /* Sections */
+      section { padding: 4rem 1.25rem; }
+
+      /* Timeline */
+      .timeline::before { left: 1rem; }
+      .timeline-item { gap: 1rem; padding-left: 0; }
+      .timeline-dot { width: 1.75rem; height: 1.75rem; font-size: 0.75rem; flex-shrink: 0; }
+
+      /* Cards */
+      .types-grid { grid-template-columns: 1fr; }
+      .facts-grid { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+      .facts-section { padding: 2rem 1.5rem; border-radius: 1.25rem; }
+      .fact .number { font-size: 2.2rem; }
+
+      /* Recipe */
       .recipe-cols { grid-template-columns: 1fr; }
-      .facts-section { padding: 2rem; }
-      nav ul { display: none; }
+      .recipe-box { padding: 1.75rem; border-radius: 1.25rem; }
+    }
+
+    @media (max-width: 380px) {
+      .facts-grid { grid-template-columns: 1fr; }
     }
 
     .recipe-box h4 {
@@ -401,11 +468,14 @@
 
   <nav>
     <div class="logo">🥪 Panini</div>
-    <ul>
-      <li><a href="#history">History</a></li>
-      <li><a href="#types">Types</a></li>
-      <li><a href="#facts">Facts</a></li>
-      <li><a href="#recipe">Recipe</a></li>
+    <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul id="nav-menu">
+      <li><a href="#history" onclick="document.querySelector('nav ul').classList.remove('open')">History</a></li>
+      <li><a href="#types" onclick="document.querySelector('nav ul').classList.remove('open')">Types</a></li>
+      <li><a href="#facts" onclick="document.querySelector('nav ul').classList.remove('open')">Facts</a></li>
+      <li><a href="#recipe" onclick="document.querySelector('nav ul').classList.remove('open')">Recipe</a></li>
       <li><a href="/dilophosaurus" class="dino-link">🦕 Dino</a></li>
     </ul>
   </nav>
