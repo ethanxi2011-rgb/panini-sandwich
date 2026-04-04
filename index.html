@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panini Sandwich — The Holy Grail of Grilled Bread</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brown: #4a2c0a;
+      --gold: #c8922a;
+      --cream: #fdf6ec;
+      --warm: #f5e6d0;
+      --text: #2d1a06;
+      --muted: #7a5c3a;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(253, 246, 236, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e8d5b7;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--brown);
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    nav .dino-link {
+      background: #1a3a1a;
+      color: #7ab648 !important;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8rem !important;
+    }
+
+    nav .dino-link:hover { background: #2d5a2d; color: white !important; }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(160deg, #fdf6ec 0%, #f5e0be 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🥪';
+      font-size: 20rem;
+      position: absolute;
+      opacity: 0.06;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      color: var(--brown);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-btn {
+      display: inline-block;
+      background: var(--brown);
+      color: var(--cream);
+      padding: 1rem 2.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .hero-btn:hover {
+      background: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    /* HISTORY TIMELINE */
+    .timeline {
+      position: relative;
+      margin-top: 3rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 2rem;
+      top: 0; bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 2rem;
+      margin-bottom: 3rem;
+      padding-left: 1rem;
+      position: relative;
+    }
+
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 2rem;
+      height: 2rem;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: white;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      margin-top: 0.25rem;
+    }
+
+    .timeline-content h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-content .year {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* TYPES GRID */
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .type-card {
+      background: white;
+      border: 1px solid #e8d5b7;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .type-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(74, 44, 10, 0.1);
+    }
+
+    .type-card .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .type-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+
+    .type-card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .type-card .origin {
+      display: inline-block;
+      margin-top: 1rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* FUN FACTS */
+    .facts-section {
+      background: var(--brown);
+      color: var(--cream);
+      border-radius: 2rem;
+      padding: 4rem;
+      margin: 4rem 0;
+    }
+
+    .facts-section .section-label { color: var(--gold); }
+    .facts-section h2 { color: var(--cream); }
+
+    .facts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+
+    .fact {
+      text-align: center;
+    }
+
+    .fact .number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: var(--gold);
+      display: block;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .fact p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* RECIPE */
+    .recipe-box {
+      background: white;
+      border: 2px solid var(--gold);
+      border-radius: 2rem;
+      padding: 3rem;
+      margin-top: 3rem;
+    }
+
+    .recipe-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--brown);
+      margin-bottom: 1.5rem;
+    }
+
+    .recipe-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 600px) {
+      .recipe-cols { grid-template-columns: 1fr; }
+      .facts-section { padding: 2rem; }
+      nav ul { display: none; }
+    }
+
+    .recipe-box h4 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .recipe-box ul, .recipe-box ol {
+      padding-left: 1.2rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .recipe-box li { margin-bottom: 0.5rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--brown);
+      color: var(--warm);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    footer .big {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--gold);
+      border-radius: 2px;
+      margin: 1.5rem 0 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🥪 Panini</div>
+    <ul>
+      <li><a href="#history">History</a></li>
+      <li><a href="#types">Types</a></li>
+      <li><a href="#facts">Facts</a></li>
+      <li><a href="#recipe">Recipe</a></li>
+      <li><a href="/dilophosaurus" class="dino-link">🦕 Dino</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-tag">Est. Ancient Italy</span>
+    <h1>The World's Greatest<br><em>Grilled Sandwich</em></h1>
+    <p>Crispy on the outside. Melty on the inside. A culinary masterpiece that has survived centuries, crossed oceans, and conquered hearts. This is the panini.</p>
+    <a href="#history" class="hero-btn">Explore the History</a>
+  </div>
+
+  <!-- HISTORY -->
+  <section id="history">
+    <div class="section-label">The Story</div>
+    <h2>A History Pressed in Time</h2>
+    <div class="divider"></div>
+    <p style="color: var(--muted); max-width: 700px;">The panini is not just a sandwich — it is a journey through centuries of Italian culture, trade, and culinary genius. From the markets of 16th century Milan to the coffee bars of modern cities, here is how it all began.</p>
+
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">🍞</div>
+        <div class="timeline-content">
+          <span class="year">16th Century</span>
+          <h3>Born in Italy</h3>
+          <p>The word "panino" (singular of panini) appears in Italian cookbooks as early as the 1500s. Milanese merchants would press small bread rolls filled with cheese and meats between hot irons — a portable, delicious meal for busy traders.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">☕</div>
+        <div class="timeline-content">
+          <span class="year">1950s–1960s</span>
+          <h3>The Italian Bar Culture</h3>
+          <p>Post-war Italy saw the rise of the "bar" — a casual café serving espresso and quick bites. Panini became the iconic snack of these establishments, pressed on ribbed cast-iron plates that gave them their signature golden grill marks.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">✈️</div>
+        <div class="timeline-content">
+          <span class="year">1970s–1980s</span>
+          <h3>Crossing the Atlantic</h3>
+          <p>Italian immigrants brought panini culture to America and the UK. Food writers began celebrating the pressed sandwich as a sophisticated alternative to ordinary lunch fare. Specialty sandwich shops started appearing across New York and London.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🌍</div>
+        <div class="timeline-content">
+          <span class="year">1990s–2000s</span>
+          <h3>Global Phenomenon</h3>
+          <p>Starbucks introduced panini to mainstream America in the early 2000s, cementing its place as a global café staple. The panini press became a must-have kitchen appliance worldwide. Every culture began putting its own spin on the classic formula.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot">🏆</div>
+        <div class="timeline-content">
+          <span class="year">Today</span>
+          <h3>An Undisputed Legend</h3>
+          <p>From street food stalls in Milan to five-star hotel restaurants in Tokyo, the panini reigns supreme. Artisan bakers craft custom ciabatta. Chefs experiment with global flavors. Yet the soul remains the same: good bread, great fillings, pressed to perfection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TYPES -->
+  <section id="types" style="background: var(--warm); max-width: 100%; padding: 6rem 2rem;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="section-label">The Classics</div>
+      <h2>Iconic Panini Varieties</h2>
+      <div class="divider"></div>
+
+      <div class="types-grid">
+        <div class="type-card">
+          <span class="emoji">🧀</span>
+          <h3>Caprese Panini</h3>
+          <p>Fresh mozzarella, ripe tomatoes, basil leaves, and a drizzle of balsamic glaze. Simple, elegant, and utterly Italian.</p>
+          <span class="origin">🇮🇹 Campania, Italy</span>
+        </div>
+
+        <div class="type-card">
+          <span class="emoji">🥩</span>
+          <h3>Prosciutto e Fontina</h3>
+          <p>Thin-sliced prosciutto di Parma with creamy Fontina cheese. The salt of the ham against the buttery cheese is pure harmony.</p>
+          <span class="origin">🇮🇹 Emilia-Romagna, Italy</span>
+        </div>
+
+        <div class="type-card">
+          <span class="emoji">🐔</span>
+          <h3>Chicken Pesto</h3>
+          <p>Grilled chicken breast, sun-dried tomatoes, fresh pesto, and provolone on ciabatta. The American-Italian crossover classic.</p>
+          <span class="origin">🇺🇸 California, USA</span>
+        </div>
+
+        <div class="type-card">
+          <span class="emoji">🍄</span>
+          <h3>Mushroom Truffle</h3>
+          <p>Sautéed wild mushrooms, truffle oil, arugula, and aged Pecorino. The gourmet vegetarian option that needs no apology.</p>
+          <span class="origin">🇮🇹 Tuscany, Italy</span>
+        </div>
+
+        <div class="type-card">
+          <span class="emoji">🐟</span>
+          <h3>Tuna Melt Panini</h3>
+          <p>Chunky tuna salad, red onion, capers, and melted Swiss cheese. A diner staple elevated by the press.</p>
+          <span class="origin">🇺🇸 New York, USA</span>
+        </div>
+
+        <div class="type-card">
+          <span class="emoji">🌶️</span>
+          <h3>Spicy Salami</h3>
+          <p>Calabrese salami, roasted red peppers, smoked mozzarella, and chili oil. For those who like their panini with attitude.</p>
+          <span class="origin">🇮🇹 Calabria, Italy</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FACTS -->
+  <section id="facts" style="max-width: 1100px; margin: 0 auto; padding: 6rem 2rem;">
+    <div class="facts-section">
+      <div class="section-label">By the Numbers</div>
+      <h2>Panini in Numbers</h2>
+      <div class="divider" style="background: var(--gold);"></div>
+
+      <div class="facts-grid">
+        <div class="fact">
+          <span class="number">500+</span>
+          <p>Years of panini history dating back to 16th century Italian cookbooks</p>
+        </div>
+        <div class="fact">
+          <span class="number">180°</span>
+          <p>Celsius — the ideal press temperature for the perfect golden crust</p>
+        </div>
+        <div class="fact">
+          <span class="number">#1</span>
+          <p>Most ordered hot sandwich in European café chains</p>
+        </div>
+        <div class="fact">
+          <span class="number">∞</span>
+          <p>Possible filling combinations — the panini has no limits</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPE -->
+  <section id="recipe" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 6rem;">
+    <div class="section-label">Make Your Own</div>
+    <h2>The Perfect Panini</h2>
+    <div class="divider"></div>
+    <p style="color: var(--muted);">The classic Prosciutto & Mozzarella — the one that started it all.</p>
+
+    <div class="recipe-box">
+      <h3>🥪 Prosciutto e Mozzarella Panini</h3>
+      <div class="recipe-cols">
+        <div>
+          <h4>Ingredients</h4>
+          <ul>
+            <li>1 ciabatta roll, sliced</li>
+            <li>4 slices prosciutto di Parma</li>
+            <li>Fresh mozzarella, 3–4 slices</li>
+            <li>A handful of fresh basil</li>
+            <li>1 tsp Dijon mustard</li>
+            <li>Drizzle of olive oil</li>
+            <li>Salt & black pepper to taste</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Method</h4>
+          <ol>
+            <li>Preheat panini press to 180°C (350°F)</li>
+            <li>Brush inside of ciabatta with olive oil</li>
+            <li>Spread Dijon mustard on one side</li>
+            <li>Layer mozzarella, then prosciutto, then basil</li>
+            <li>Season with salt and pepper</li>
+            <li>Press for 3–4 minutes until golden</li>
+            <li>Slice diagonally. Serve immediately. Enjoy.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="big">🥪</span>
+    <strong>panini-sandwich.com</strong><br>
+    <span style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.5rem; display: block;">
+      Celebrating the art of the pressed sandwich since forever.
+    </span>
+  </footer>
+
+</body>
+</html>

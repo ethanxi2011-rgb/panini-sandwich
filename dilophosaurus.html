@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilophosaurus — The Two-Crested Hunter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1a3a1a;
+      --lime: #4a7c3f;
+      --brightlime: #7ab648;
+      --cream: #f0f7ec;
+      --warm: #e0f0d8;
+      --text: #1a2d1a;
+      --muted: #4a6b45;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(240, 247, 236, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #c0d8b0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: var(--brightlime); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 2rem 4rem;
+      background: linear-gradient(160deg, #0d1f0d 0%, #1a3a1a 60%, #2d5a2d 100%);
+      position: relative;
+      overflow: hidden;
+      color: var(--cream);
+    }
+
+    .hero::before {
+      content: '🦕';
+      font-size: 20rem;
+      position: absolute;
+      opacity: 0.05;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--brightlime);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      max-width: 900px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--brightlime);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 600px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .val {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--brightlime);
+      display: block;
+    }
+
+    .hero-stat .lbl {
+      font-size: 0.8rem;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--brightlime);
+      margin-bottom: 0.75rem;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      color: var(--green);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .divider {
+      width: 60px;
+      height: 3px;
+      background: var(--brightlime);
+      border-radius: 2px;
+      margin: 1.5rem 0 2rem;
+    }
+
+    p.lead {
+      color: var(--muted);
+      max-width: 750px;
+      font-size: 1.05rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* INFO CARDS */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .info-card {
+      background: white;
+      border: 1px solid #c0d8b0;
+      border-radius: 1.5rem;
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(26, 58, 26, 0.1);
+    }
+
+    .info-card .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .info-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    /* HUNTING SECTION */
+    .hunting-section {
+      background: var(--green);
+      color: var(--cream);
+      border-radius: 2rem;
+      padding: 4rem;
+      margin: 2rem 0;
+    }
+
+    .hunting-section .section-label { color: var(--brightlime); }
+    .hunting-section h2 { color: white; }
+    .hunting-section p { color: rgba(255,255,255,0.75); }
+
+    .tactics-list {
+      margin-top: 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .tactic {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 1rem;
+      padding: 1.5rem;
+    }
+
+    .tactic .icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+      display: block;
+    }
+
+    .tactic h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--brightlime);
+      margin-bottom: 0.5rem;
+    }
+
+    .tactic p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.65);
+    }
+
+    /* PREY SECTION */
+    .prey-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .prey-card {
+      background: white;
+      border-left: 4px solid var(--brightlime);
+      border-radius: 0 1rem 1rem 0;
+      padding: 1.5rem;
+    }
+
+    .prey-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+
+    .prey-card .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brightlime);
+      margin-bottom: 0.5rem;
+    }
+
+    .prey-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* TIMELINE */
+    .time-box {
+      background: white;
+      border: 2px solid var(--brightlime);
+      border-radius: 2rem;
+      padding: 3rem;
+      margin-top: 3rem;
+    }
+
+    .time-box h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--green);
+      margin-bottom: 2rem;
+    }
+
+    .period-bar {
+      background: #e8f5e0;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .period-bar::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: var(--brightlime);
+      border-radius: 1rem 0 0 1rem;
+    }
+
+    .period-bar h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--green);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .period-bar .mya {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brightlime);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .period-bar p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--green);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background 0.2s, transform 0.2s;
+      margin-bottom: 2rem;
+    }
+
+    .back-link:hover {
+      background: var(--brightlime);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--green);
+      color: var(--cream);
+      text-align: center;
+      padding: 3rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    footer .big {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--brightlime);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .hunting-section { padding: 2rem; }
+      nav ul { display: none; }
+      .hero-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">🦕 Dilophosaurus</div>
+    <ul>
+      <li><a href="#overview">Overview</a></li>
+      <li><a href="#hunting">Hunting</a></li>
+      <li><a href="#prey">Prey</a></li>
+      <li><a href="#period">Time Period</a></li>
+      <li><a href="#ask">Ask AI</a></li>
+      <li><a href="/">🥪 Panini</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="hero-tag">Early Jurassic Predator</span>
+    <h1>The <em>Two-Crested</em><br>Hunter</h1>
+    <p>Fast. Agile. Deadly. The Dilophosaurus ruled the Jurassic landscape 184 million years ago — one of the first great predators to walk the Earth.</p>
+
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="val">184M</span>
+        <span class="lbl">Years Ago</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">6m</span>
+        <span class="lbl">Length</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">400kg</span>
+        <span class="lbl">Weight</span>
+      </div>
+      <div class="hero-stat">
+        <span class="val">2</span>
+        <span class="lbl">Head Crests</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section id="overview">
+    <a href="/" class="back-link">← Back to Panini</a>
+    <div class="section-label">The Beast</div>
+    <h2>What Was the Dilophosaurus?</h2>
+    <div class="divider"></div>
+    <p class="lead">Dilophosaurus wetherilli was one of the largest carnivorous dinosaurs of the Early Jurassic period. Its name means "two-crested lizard" — named for the pair of thin, bony crests running along the top of its skull. First discovered in Arizona in 1942, it has since become one of the most studied early theropod dinosaurs.</p>
+    <p class="lead">Despite its Hollywood portrayal in Jurassic Park (1993) as a small, venom-spitting creature with a neck frill, the real Dilophosaurus was far more impressive — a large, powerful predator that stood nearly 1.5 meters tall at the hip and measured up to 6 meters in length.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <span class="emoji">🦴</span>
+        <h3>Physical Build</h3>
+        <p>Lean and muscular with long, powerful legs built for speed. Its arms were short but strong with sharp, curved claws. The twin bony crests on its skull were likely used for display rather than combat — too fragile for fighting.</p>
+      </div>
+      <div class="info-card">
+        <span class="emoji">🧠</span>
+        <h3>Intelligence</h3>
+        <p>Relative to its body size, Dilophosaurus had a larger brain than many contemporaries. This likely made it a more adaptable and strategic hunter — capable of tracking prey and adjusting tactics.</p>
+      </div>
+      <div class="info-card">
+        <span class="emoji">👁️</span>
+        <h3>Senses</h3>
+        <p>Large eye sockets suggest excellent vision, possibly including good low-light sight. Its elongated snout housed many sensory nerves, helping it detect movement and track wounded prey.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HUNTING -->
+  <section id="hunting" style="max-width: 100%; padding: 6rem 2rem;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div class="hunting-section">
+        <div class="section-label">The Kill</div>
+        <h2>Hunting Tactics</h2>
+        <div class="divider"></div>
+        <p>Dilophosaurus was an active, pursuit predator. Unlike the later giant sauropod-hunters, it relied on speed, agility, and intelligence rather than brute force. Here is how scientists believe it hunted:</p>
+
+        <div class="tactics-list">
+          <div class="tactic">
+            <span class="icon">💨</span>
+            <h4>Speed & Pursuit</h4>
+            <p>Long, powerful hind legs gave Dilophosaurus exceptional running speed. It likely ran down smaller prey in open terrain, using bursts of speed to close the gap before striking.</p>
+          </div>
+          <div class="tactic">
+            <span class="icon">🎯</span>
+            <h4>Ambush Predation</h4>
+            <p>For larger prey, it may have used cover — trees, riverbanks, rocky outcrops — to launch surprise attacks, raking with its claws before backing off and waiting for prey to weaken.</p>
+          </div>
+          <div class="tactic">
+            <span class="icon">🦷</span>
+            <h4>Bite & Slash</h4>
+            <p>Its jaws were lined with sharp, recurved teeth ideal for gripping and tearing flesh. The notched upper jaw (a unique feature) may have helped it grip struggling prey more securely.</p>
+          </div>
+          <div class="tactic">
+            <span class="icon">🐾</span>
+            <h4>Pack Behavior?</h4>
+            <p>Some trackways suggest Dilophosaurus may have moved in groups. If it hunted cooperatively, it could have taken down prey far larger than any individual could manage alone.</p>
+          </div>
+          <div class="tactic">
+            <span class="icon">🌊</span>
+            <h4>Fishing</h4>
+            <p>Evidence from fossil sites near ancient waterways suggests Dilophosaurus may have waded and fished — snatching fish and aquatic creatures with its narrow, sensitive snout.</p>
+          </div>
+          <div class="tactic">
+            <span class="icon">🦴</span>
+            <h4>Scavenging</h4>
+            <p>Like most large predators, it almost certainly scavenged when the opportunity arose — feeding on carcasses left by other predators or natural deaths, conserving energy between hunts.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PREY -->
+  <section id="prey">
+    <div class="section-label">The Menu</div>
+    <h2>What Did It Eat?</h2>
+    <div class="divider"></div>
+    <p class="lead">The Early Jurassic world was full of potential prey. Dilophosaurus, as one of the largest predators of its time, had many options on the menu — from small reptiles to large prosauropods.</p>
+
+    <div class="prey-grid">
+      <div class="prey-card">
+        <span class="tag">Primary Prey</span>
+        <h4>Prosauropods</h4>
+        <p>Large plant-eating dinosaurs like Anchisaurus were likely the main food source — big enough to be worth hunting, slow enough to be caught.</p>
+      </div>
+      <div class="prey-card">
+        <span class="tag">Common Prey</span>
+        <h4>Small Ornithischians</h4>
+        <p>Smaller dinosaurs like Scutellosaurus were fast but vulnerable in open ground. Dilophosaurus could run them down with ease.</p>
+      </div>
+      <div class="prey-card">
+        <span class="tag">Opportunistic</span>
+        <h4>Early Crocodilians</h4>
+        <p>Primitive crocodile ancestors lived alongside Dilophosaurus. Smaller individuals away from water were fair game for an opportunistic predator.</p>
+      </div>
+      <div class="prey-card">
+        <span class="tag">Opportunistic</span>
+        <h4>Large Lizards & Reptiles</h4>
+        <p>The Jurassic world teemed with large reptiles. Any slow or injured animal was a potential meal for Dilophosaurus.</p>
+      </div>
+      <div class="prey-card">
+        <span class="tag">Supplemental</span>
+        <h4>Fish</h4>
+        <p>Near rivers and lakes, fish were an easy protein source. Its narrow snout may have been well-adapted for snatching fish from shallow water.</p>
+      </div>
+      <div class="prey-card">
+        <span class="tag">Supplemental</span>
+        <h4>Insects & Small Animals</h4>
+        <p>Early mammals and large insects provided supplemental nutrition, especially for juveniles still developing their hunting skills.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIME PERIOD -->
+  <section id="period">
+    <div class="section-label">When</div>
+    <h2>Time Period & World</h2>
+    <div class="divider"></div>
+    <p class="lead">Dilophosaurus lived during the Early Jurassic period, approximately 184 million years ago. The world it inhabited was dramatically different from today — a hot, semi-arid supercontinent just beginning to break apart.</p>
+
+    <div class="time-box">
+      <h3>🌍 The Jurassic World</h3>
+
+      <div class="period-bar">
+        <span class="mya">~252 Million Years Ago</span>
+        <h4>End of the Permian / Triassic Begins</h4>
+        <p>The largest mass extinction in Earth's history wiped out 96% of marine species and 70% of land vertebrates. The stage was set for dinosaurs to rise.</p>
+      </div>
+
+      <div class="period-bar">
+        <span class="mya">~230 Million Years Ago</span>
+        <h4>First Dinosaurs Appear</h4>
+        <p>Early small theropods like Eoraptor and Herrerasaurus emerge in what is now South America. The age of dinosaurs begins.</p>
+      </div>
+
+      <div class="period-bar" style="background: #d0ecc0; border-left: 5px solid var(--brightlime);">
+        <span class="mya">~184 Million Years Ago ← DILOPHOSAURUS LIVES HERE</span>
+        <h4>Early Jurassic — Sinemurian/Pliensbachian Stage</h4>
+        <p>Pangaea is splitting apart. North America and Europe are separating. The climate is warm and dry inland, lush near coasts. Dilophosaurus is one of the apex predators of this era in what is now the American Southwest.</p>
+      </div>
+
+      <div class="period-bar">
+        <span class="mya">~150 Million Years Ago</span>
+        <h4>Late Jurassic — The Giants Arrive</h4>
+        <p>Brachiosaurus, Stegosaurus, and Allosaurus dominate. The world Dilophosaurus knew is long gone — replaced by even larger, more specialized dinosaurs.</p>
+      </div>
+
+      <div class="period-bar">
+        <span class="mya">~66 Million Years Ago</span>
+        <h4>End of the Cretaceous — Mass Extinction</h4>
+        <p>An asteroid impact ends the reign of non-avian dinosaurs. Dilophosaurus had already been extinct for over 125 million years by this point.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI SEARCH -->
+  <section id="ask" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem 6rem;">
+    <div class="section-label">Ask the Expert</div>
+    <h2>Ask About Dilophosaurus</h2>
+    <div class="divider"></div>
+    <p class="lead">Got a question about the two-crested hunter? Ask away — powered by AI! 🦕</p>
+
+    <div style="background: white; border: 2px solid var(--brightlime); border-radius: 2rem; padding: 2.5rem; margin-top: 2rem;">
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+        <input
+          id="dino-question"
+          type="text"
+          placeholder="e.g. How fast could Dilophosaurus run?"
+          style="flex: 1; min-width: 200px; padding: 1rem 1.5rem; border: 2px solid #c0d8b0; border-radius: 100px; font-size: 1rem; font-family: 'Inter', sans-serif; outline: none; color: var(--text);"
+          onkeydown="if(event.key==='Enter') askDino()"
+        />
+        <button
+          onclick="askDino()"
+          style="background: var(--green); color: white; border: none; padding: 1rem 2rem; border-radius: 100px; font-size: 1rem; font-weight: 600; cursor: pointer; font-family: 'Inter', sans-serif; transition: background 0.2s; white-space: nowrap;"
+          onmouseover="this.style.background='#7ab648'"
+          onmouseout="this.style.background='#1a3a1a'"
+        >
+          Ask 🦕
+        </button>
+      </div>
+
+      <!-- Quick questions -->
+      <div style="margin-top: 1.2rem; display: flex; flex-wrap: wrap; gap: 0.5rem;">
+        <span style="font-size: 0.8rem; color: var(--muted); align-self: center;">Try:</span>
+        <button onclick="quickAsk('Did Dilophosaurus spit venom?')" class="quick-btn">Did it spit venom?</button>
+        <button onclick="quickAsk('What did Dilophosaurus eat?')" class="quick-btn">What did it eat?</button>
+        <button onclick="quickAsk('How big was Dilophosaurus?')" class="quick-btn">How big was it?</button>
+        <button onclick="quickAsk('Why did Dilophosaurus have crests?')" class="quick-btn">Why the crests?</button>
+      </div>
+
+      <!-- Answer box -->
+      <div id="dino-answer" style="display:none; margin-top: 1.5rem; background: var(--cream); border-radius: 1rem; padding: 1.5rem;">
+        <div style="font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brightlime); margin-bottom: 0.5rem;">🦕 Dino Expert Says:</div>
+        <div id="dino-answer-text" style="color: var(--text); font-size: 0.95rem; line-height: 1.7;"></div>
+      </div>
+
+      <!-- Loading -->
+      <div id="dino-loading" style="display:none; margin-top: 1.5rem; text-align: center; color: var(--muted); font-size: 0.9rem;">
+        🦕 Thinking...
+      </div>
+
+      <!-- Error -->
+      <div id="dino-error" style="display:none; margin-top: 1.5rem; color: #c0392b; font-size: 0.9rem; padding: 1rem; background: #fdf0f0; border-radius: 1rem;"></div>
+    </div>
+  </section>
+
+  <style>
+    .quick-btn {
+      background: var(--warm);
+      border: 1px solid #c0d8b0;
+      color: var(--muted);
+      padding: 0.35rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+    }
+    .quick-btn:hover {
+      background: var(--brightlime);
+      color: white;
+      border-color: var(--brightlime);
+    }
+  </style>
+
+  <script>
+    const WORKER_URL = 'https://panini-dino-ai.ethanxi2011.workers.dev';
+
+    async function askDino() {
+      const input = document.getElementById('dino-question');
+      const question = input.value.trim();
+      if (!question) return;
+
+      const answerBox = document.getElementById('dino-answer');
+      const answerText = document.getElementById('dino-answer-text');
+      const loading = document.getElementById('dino-loading');
+      const error = document.getElementById('dino-error');
+
+      answerBox.style.display = 'none';
+      error.style.display = 'none';
+      loading.style.display = 'block';
+
+      try {
+        const res = await fetch(WORKER_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ question }),
+        });
+
+        const data = await res.json();
+        loading.style.display = 'none';
+
+        if (data.answer) {
+          answerText.textContent = data.answer;
+          answerBox.style.display = 'block';
+        } else {
+          error.textContent = data.error || 'Something went wrong. Try again!';
+          error.style.display = 'block';
+        }
+      } catch (err) {
+        loading.style.display = 'none';
+        error.textContent = 'Could not connect. Try again!';
+        error.style.display = 'block';
+      }
+    }
+
+    function quickAsk(q) {
+      document.getElementById('dino-question').value = q;
+      askDino();
+    }
+  </script>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="big">🦕</span>
+    <strong>panini-sandwich.com/dilophosaurus</strong><br>
+    <span style="opacity: 0.6; font-size: 0.8rem; margin-top: 0.5rem; display: block;">
+      184 million years of cool. | <a href="/" style="color: var(--brightlime);">← Back to Panini 🥪</a>
+    </span>
+    <span style="opacity: 0.4; font-size: 0.75rem; margin-top: 1rem; display: block;">
+      Sources: <a href="https://www.nhm.ac.uk/discover/dino-directory/dilophosaurus.html" style="color: var(--brightlime);" target="_blank">Natural History Museum (NHM)</a> · Some hunting behavior represents current scientific theory and ongoing debate.
+    </span>
+  </footer>
+
+</body>
+</html>
