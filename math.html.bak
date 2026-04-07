@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IM2 Study Guide — Math</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1a2a4a;
+      --accent: #3b6cf7;
+      --light: #e8f0fe;
+      --cream: #f8faff;
+      --text: #1a2032;
+      --muted: #5a6a8a;
+      --green: #1a7a4a;
+      --green-light: #e8f7ee;
+      --purple: #5a2a7a;
+      --purple-light: #f0e8fa;
+      --red: #7a1a1a;
+      --red-light: #faeaea;
+      --gold: #7a5a0a;
+      --gold-light: #faf5e8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(26, 42, 74, 0.97);
+      backdrop-filter: blur(10px);
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    nav ul { list-style: none; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: white; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a2a4a 0%, #2a3a6a 60%, #3b6cf7 100%);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+    }
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto 2rem; }
+
+    /* TOC */
+    .toc-wrapper {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .toc-group {
+      background: white;
+      border-radius: 1rem;
+      border: 1px solid #dde8ff;
+      margin-bottom: 1rem;
+      overflow: hidden;
+    }
+    .toc-group-header {
+      padding: 0.75rem 1.25rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .toc-group-links {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0;
+      padding: 0.5rem 1rem 0.75rem;
+    }
+    .toc-group-links a {
+      text-decoration: none;
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.25rem 0.25rem;
+      display: block;
+      border-bottom: 1px solid #f0f4ff;
+      transition: color 0.2s;
+    }
+    .toc-group-links a:hover { color: var(--blue); }
+
+    /* GROUP BANNER */
+    .group-banner {
+      color: white;
+      padding: 1.5rem 2rem;
+      margin: 3rem 0 0;
+      border-radius: 1rem 1rem 0 0;
+    }
+    .group-banner-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.7;
+      margin-bottom: 0.3rem;
+    }
+    .group-banner-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    /* SUBSECTION WRAPPER */
+    .subsection-wrapper {
+      border-radius: 0 0 0.75rem 0.75rem;
+      overflow: visible;
+      margin-bottom: 0;
+    }
+    .subsection-wrapper + .subsection-wrapper {
+      margin-top: 0.5rem;
+    }
+
+    /* SUBSECTION TAB */
+    .subsection-tab {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.55rem 1.5rem;
+      border-radius: 0;
+      border-left: 4px solid transparent;
+    }
+    .subsection-tab-num {
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .subsection-tab-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      opacity: 0.9;
+    }
+
+    /* MAIN */
+    main { max-width: 900px; margin: 0 auto; padding: 1rem 2rem 6rem; }
+
+    /* SECTION HEADERS */
+    .unit {
+      margin-top: 0;
+      padding-top: 2rem;
+      border-top: none;
+      background: white;
+      border: 1px solid #dde8ff;
+      border-top: none;
+      border-radius: 0 0 0.75rem 0.75rem;
+      padding: 2rem 2rem 2rem;
+    }
+    .unit-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .unit h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--blue); margin-bottom: 1.5rem; }
+
+    /* CONCEPT BOX */
+    .concept {
+      background: white;
+      border: 1px solid #dde8ff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .concept h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .concept p, .concept li { color: var(--muted); font-size: 0.93rem; margin-bottom: 0.4rem; }
+    .concept ul, .concept ol { padding-left: 1.2rem; }
+    .concept li { margin-bottom: 0.3rem; }
+
+    /* FORMULA BOX */
+    .formula {
+      background: var(--light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    /* COLOR VARIANTS */
+    .green-box { background: var(--green-light); border-color: var(--green); }
+    .green-box h3 { color: var(--green); }
+    .green-formula { background: var(--green-light); border-left-color: var(--green); color: var(--green); }
+
+    .purple-box { background: var(--purple-light); border-color: var(--purple); }
+    .purple-box h3 { color: var(--purple); }
+    .purple-formula { background: var(--purple-light); border-left-color: var(--purple); color: var(--purple); }
+
+    .gold-box { background: var(--gold-light); border-color: var(--gold); }
+    .gold-box h3 { color: var(--gold); }
+    .gold-formula { background: var(--gold-light); border-left-color: var(--gold); color: var(--gold); }
+
+    .red-box { background: var(--red-light); border-color: var(--red); }
+    .red-box h3 { color: var(--red); }
+
+    /* EXAMPLE BOX */
+    .example {
+      background: #f8f9ff;
+      border: 1px dashed #aac0ff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 0.75rem 0;
+    }
+    .example-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .example p { font-size: 0.9rem; color: var(--text); }
+    .example .step { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: var(--blue); margin: 0.2rem 0; }
+    .example .answer { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--green); font-weight: 700; background: var(--green-light); display: inline-block; padding: 0.2rem 0.6rem; border-radius: 0.4rem; margin-top: 0.5rem; }
+
+    /* TIP */
+    .tip { background: #fffbe8; border-left: 4px solid #f5a623; border-radius: 0 0.75rem 0.75rem 0; padding: 0.75rem 1rem; margin: 0.75rem 0; font-size: 0.88rem; color: #7a5a0a; }
+    .tip strong { color: #5a3a00; }
+
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+    th { background: var(--blue); color: white; padding: 0.6rem 1rem; text-align: left; font-size: 0.8rem; letter-spacing: 0.05em; }
+    td { padding: 0.6rem 1rem; border-bottom: 1px solid #eef1ff; color: var(--text); font-family: 'JetBrains Mono', monospace; }
+    tr:nth-child(even) td { background: #f5f8ff; }
+
+    /* GRID */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+
+    /* FOOTER */
+    footer { background: var(--blue); color: white; text-align: center; padding: 2rem; font-size: 0.85rem; opacity: 0.9; }
+    footer a { color: #aac0ff; }
+
+    @media (max-width: 640px) {
+      .nav-toggle { display: flex; }
+      nav ul { display: none; position: fixed; top: 57px; left: 0; right: 0; background: var(--blue); flex-direction: column; align-items: center; padding: 1rem 0 1.5rem; }
+      nav ul.open { display: flex; }
+      nav ul li { width: 100%; text-align: center; }
+      nav ul li a { display: block; padding: 0.75rem 2rem; }
+      .two-col { grid-template-columns: 1fr; }
+      main { padding: 1rem 1.25rem 4rem; }
+      .toc-wrapper { margin: 1rem; }
+    }
+
+    /* ── GROUP COLOR THEMES ── */
+    /* G1 — Polynomials Basics: indigo */
+    .g1-banner  { background: linear-gradient(135deg, #1a2a4a, #3b6cf7); }
+    .g1-toc     { background: linear-gradient(90deg, #3b6cf7, #5a82f9); }
+    .g1-tab     { background: #eef2ff; border-left-color: #3b6cf7; color: #1a2a4a; }
+
+    /* G2 — Multiplying Polynomials: teal */
+    .g2-banner  { background: linear-gradient(135deg, #0d4a3a, #1a9e78); }
+    .g2-toc     { background: linear-gradient(90deg, #1a9e78, #22c49a); }
+    .g2-tab     { background: #e6f7f2; border-left-color: #1a9e78; color: #0d4a3a; }
+
+    /* G3 — Graphing Quadratics: violet */
+    .g3-banner  { background: linear-gradient(135deg, #2d1a5a, #7c3cf7); }
+    .g3-toc     { background: linear-gradient(90deg, #7c3cf7, #9b62f9); }
+    .g3-tab     { background: #f0ebff; border-left-color: #7c3cf7; color: #2d1a5a; }
+
+    /* G4 — Solving Quadratics: crimson */
+    .g4-banner  { background: linear-gradient(135deg, #4a1a1a, #c73b3b); }
+    .g4-toc     { background: linear-gradient(90deg, #c73b3b, #e05555); }
+    .g4-tab     { background: #fdf0f0; border-left-color: #c73b3b; color: #4a1a1a; }
+
+    /* G5 — Word Problems: amber */
+    .g5-banner  { background: linear-gradient(135deg, #4a3400, #c78f00); }
+    .g5-toc     { background: linear-gradient(90deg, #c78f00, #e0a800); }
+    .g5-tab     { background: #fdf8e6; border-left-color: #c78f00; color: #4a3400; }
+
+    /* G6 — Complex & Imaginary: magenta */
+    .g6-banner  { background: linear-gradient(135deg, #4a0a4a, #b03abf); }
+    .g6-toc     { background: linear-gradient(90deg, #b03abf, #cc55d6); }
+    .g6-tab     { background: #faeeff; border-left-color: #b03abf; color: #4a0a4a; }
+
+    /* G7 — Circles & Parabolas: ocean */
+    .g7-banner  { background: linear-gradient(135deg, #0a3a4a, #1a8ab0); }
+    .g7-toc     { background: linear-gradient(90deg, #1a8ab0, #26a8d4); }
+    .g7-tab     { background: #e6f5fa; border-left-color: #1a8ab0; color: #0a3a4a; }
+
+    /* G8 — Radicals & Conjugates: forest */
+    .g8-banner  { background: linear-gradient(135deg, #1a3a1a, #3a8a3a); }
+    .g8-toc     { background: linear-gradient(90deg, #3a8a3a, #4db04d); }
+    .g8-tab     { background: #edf7ed; border-left-color: #3a8a3a; color: #1a3a1a; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">🥪 Panini</a>
+  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#intropolynomials">Polynomials</a></li>
+    <li><a href="#mod61day1">Graphing</a></li>
+    <li><a href="#zeroproduct">Solving</a></li>
+    <li><a href="#complex">Complex #s</a></li>
+    <li><a href="#circles">Circles</a></li>
+    <li><a href="/">🥪 Home</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">IM2 Honors</span>
+  <h1>📐 Math Study Guide</h1>
+  <p>Simplified notes covering Polynomials, Quadratics, Graphing, Complex Numbers, Circles, and more — organized by topic.</p>
+</div>
+
+<!-- TOC -->
+<div class="toc-wrapper">
+
+  <div class="toc-group">
+    <div class="toc-group-header g1-toc">📚 Group 1 — Polynomials: The Basics</div>
+    <div class="toc-group-links">
+      <a href="#intropolynomials">1.1 · Intro to Polynomials</a>
+      <a href="#simplifypolynomials">1.2 · Simplifying &amp; Standard Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g2-toc">✖️ Group 2 — Multiplying Polynomials</div>
+    <div class="toc-group-links">
+      <a href="#mod51day1">2.1 · Monomial × Polynomial (5.1)</a>
+      <a href="#polynomials">2.2 · FOIL, Distribution, Box Method (5.2)</a>
+      <a href="#mod53">2.3 · Special Products (5.3)</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g3-toc">📉 Group 3 — Graphing Quadratics</div>
+    <div class="toc-group-links">
+      <a href="#mod61day1">3.1 · Graphing at Origin (6.1 D1)</a>
+      <a href="#mod61day2">3.2 · Domain, Range &amp; Comparison (6.1 D2)</a>
+      <a href="#mod62">3.3 · Vertex Form &amp; Transformations (6.2)</a>
+      <a href="#mod63day1">3.4 · Identifying Quadratics (6.3 D1)</a>
+      <a href="#graphzeros">3.5 · Graphing Using Zeros</a>
+      <a href="#standardgraph">3.6 · Graphing in Standard Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g4-toc">🎯 Group 4 — Solving Quadratics</div>
+    <div class="toc-group-links">
+      <a href="#zeroproduct">4.1 · Zero Product Property</a>
+      <a href="#distrib">4.2 · Distributive + Zero Product</a>
+      <a href="#factoringvars">4.3 · Factoring with Variables &amp; Grouping</a>
+      <a href="#specialfactors">4.4 · Special Factoring Patterns</a>
+      <a href="#factorsolve">4.5 · Factoring to Solve</a>
+      <a href="#sqrtmethod">4.6 · Square Root Method</a>
+      <a href="#ctss">4.7 · Completing the Square to Solve</a>
+      <a href="#quadformula">4.8 · Quadratic Formula</a>
+      <a href="#vertexform">4.9 · Vertex Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g5-toc">🌍 Group 5 — Word Problems</div>
+    <div class="toc-group-links">
+      <a href="#quadratic">5.1 · Real-World Quadratics</a>
+      <a href="#wordproblems">5.2 · Quadratic Word Problems</a>
+      <a href="#stdformword">5.3 · Standard Form Extra Examples</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g6-toc">🌀 Group 6 — Complex &amp; Imaginary Numbers</div>
+    <div class="toc-group-links">
+      <a href="#complex">6.1 · Complex Numbers</a>
+      <a href="#imaginary">6.2 · Powers of i</a>
+      <a href="#imagsolve">6.3 · Imaginary Solutions</a>
+      <a href="#discdetail">6.4 · The Discriminant</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g7-toc">🔵 Group 7 — Circles &amp; Parabolas</div>
+    <div class="toc-group-links">
+      <a href="#circles">7.1 · Circles Module 12.1</a>
+      <a href="#completing">7.2 · Completing the Square — Circles</a>
+      <a href="#parabolas">7.3 · Parabolas Focus &amp; Directrix</a>
+      <a href="#focusdirectrix2">7.4 · Parabola Equation from Focus &amp; Directrix</a>
+      <a href="#systems">7.5 · Linear-Quadratic Systems</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header g8-toc">√ Group 8 — Radicals &amp; Conjugates</div>
+    <div class="toc-group-links">
+      <a href="#simplifyroots">8.1 · Simplifying Square Roots</a>
+      <a href="#conjugates">8.2 · Conjugates</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #1a2a4a, #2a3a5a);">⚡ Quick Reference</div>
+    <div class="toc-group-links">
+      <a href="#quickref">⚡ All Key Formulas (Cheat Sheet)</a>
+    </div>
+  </div>
+
+</div>
+
+<main>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!-- GROUP 1: POLYNOMIALS — THE BASICS -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="group-banner g1-banner">
+    <div class="group-banner-num">Group 1</div>
+    <div class="group-banner-title">📚 Polynomials — The Basics</div>
+  </div>
+
+  <!-- 1.1 -->
+  <div class="subsection-wrapper">
+    <div class="subsection-tab g1-tab">
+      <span class="subsection-tab-num">1.1</span>
+      <span class="subsection-tab-name">Intro to Polynomials</span>
+    </div>
+    <div class="unit" id="intropolynomials">
+      <div class="unit-label">Introduction to Polynomials</div>
+      <h2>📚 Introduction to Polynomials</h2>
+
+      <div class="concept purple-box">
+        <h3>📌 What is a Monomial?</h3>
+        <p>A monomial is an expression consisting of a <strong>number, variable, or product of numbers and variables</strong> with whole number exponents.</p>
+        <ul>
+          <li>Terms of an expression are separated by <strong>plus signs</strong></li>
+          <li>Remember: x - y = x + (-y)</li>
+          <li>A monomial can have <strong>at most one term</strong></li>
+          <li>A monomial <strong>cannot have a variable in its denominator</strong></li>
+        </ul>
+      </div>
+
+      <div class="concept">
+        <h3>✅ Is it a Monomial? — Examples</h3>
+        <table>
+          <tr><th>Term</th><th>Monomial?</th><th>Reason</th></tr>
+          <tr><td>5ab²</td><td>✅ Yes</td><td>Product of numbers & variables</td></tr>
+          <tr><td>x²</td><td>✅ Yes</td><td>Product (variable with whole number exponent)</td></tr>
+          <tr><td>√y = y^½</td><td>❌ No</td><td>Exponent is NOT a whole number (½)</td></tr>
+          <tr><td>2²y</td><td>✅ Yes</td><td>Product (2² is just a number)</td></tr>
+          <tr><td>5/k²</td><td>❌ No</td><td>Variable in the denominator</td></tr>
+          <tr><td>-4xy</td><td>✅ Yes</td><td>Product of numbers and variables</td></tr>
+          <tr><td>5x + 7</td><td>❌ No</td><td>Separated by plus sign (two terms)</td></tr>
+          <tr><td>k²/4</td><td>✅ Yes</td><td>Product (4 is just a constant denominator)</td></tr>
+          <tr><td>0.25x⁻¹</td><td>❌ No</td><td>Negative exponent (not whole number)</td></tr>
+          <tr><td>y/x²</td><td>❌ No</td><td>Variable in denominator</td></tr>
+          <tr><td>1/xy⁴</td><td>❌ No</td><td>Variables in denominator (can't have fractional exponents)</td></tr>
+          <tr><td>5</td><td>✅ Yes</td><td>Just a number — that's fine!</td></tr>
+        </table>
+      </div>
+
+      <div class="concept green-box">
+        <h3>📦 Classifying Polynomials by Number of Terms</h3>
+        <table>
+          <tr><th>Type</th><th>Terms</th><th>Examples</th></tr>
+          <tr><td>Monomial</td><td>1 term</td><td>2x, 15xy, 2.05x²y²z²</td></tr>
+          <tr><td>Binomial</td><td>2 terms</td><td>15y⁴-2y, 2x²+2xy, 8z⁸-4y³</td></tr>
+          <tr><td>Trinomial</td><td>3 terms</td><td>3y²+4y-5, 20x⁴y²+15y²+y, 7y⁵y⁸-3+x</td></tr>
+          <tr><td>Polynomial</td><td>4+ terms</td><td>3y+y-2x²+3y²+2z, 2x-3y+2x2-4, 1xy²+3x², 2+2y+1</td></tr>
+        </table>
+      </div>
+
+      <div class="concept gold-box">
+        <h3>🎓 Degree of a Polynomial</h3>
+        <p>Found by <strong>adding the exponents of each term</strong> (variables only), then choosing the largest value.</p>
+        <div class="example">
+          <div class="example-label">Ex 1 — Classify by degree and number of terms</div>
+          <div class="step">a) 7x²-5x²y²+6 → 7x²(deg 2), 5x²y²(deg 4), 6(deg 0) → <strong>6th degree binomial</strong></div>
+          <div class="step">b) 3³+2n²+8n → <strong>2nd degree trinomial</strong></div>
+          <div class="step">c) 3x²y²+3xy
