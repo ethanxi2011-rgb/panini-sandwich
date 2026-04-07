@@ -3,27 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Math — panini-sandwich.com</title>
+  <title>IM2 Study Guide — Math</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --blue: #1a2a4a;
+      --accent: #3b6cf7;
+      --light: #e8f0fe;
+      --cream: #f8faff;
+      --text: #1a2032;
+      --muted: #5a6a8a;
+      --green: #1a7a4a;
+      --green-light: #e8f7ee;
+      --purple: #5a2a7a;
+      --purple-light: #f0e8fa;
+      --red: #7a1a1a;
+      --red-light: #faeaea;
+      --gold: #7a5a0a;
+      --gold-light: #faf5e8;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: 'Inter', sans-serif;
-      background: #fdf6ec;
-      color: #2d1a06;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.7;
     }
+
+    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      background: rgba(253, 246, 236, 0.92);
+      background: rgba(26, 42, 74, 0.97);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid #e8d5b7;
       z-index: 100;
       padding: 1rem 2rem;
       display: flex;
@@ -32,74 +49,609 @@
     }
     nav .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: #4a2c0a;
+      font-size: 1.2rem;
+      color: white;
       font-weight: 700;
       text-decoration: none;
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
+    nav ul { list-style: none; display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap; }
+    nav a { text-decoration: none; color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: white; }
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+    .nav-toggle span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a2a4a 0%, #2a3a6a 60%, #3b6cf7 100%);
+      color: white;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
     }
-    nav a {
-      text-decoration: none;
-      color: #7a5c3a;
-      font-size: 0.9rem;
+    .hero-tag { display: inline-block; background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); color: white; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 100px; margin-bottom: 1.5rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 1rem; }
+    .hero p { font-size: 1.1rem; opacity: 0.8; max-width: 600px; margin: 0 auto 2rem; }
+
+    /* TOC */
+    .toc {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      margin: 2rem auto;
+      max-width: 900px;
+      border: 1px solid #dde8ff;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.5rem 2rem;
+    }
+    .toc a { text-decoration: none; color: var(--accent); font-size: 0.9rem; font-weight: 600; padding: 0.3rem 0; display: block; border-bottom: 1px solid #f0f4ff; transition: color 0.2s; }
+    .toc a:hover { color: var(--blue); }
+
+    /* MAIN */
+    main { max-width: 900px; margin: 0 auto; padding: 1rem 2rem 6rem; }
+
+    /* SECTION HEADERS */
+    .unit {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 3px solid var(--accent);
+    }
+    .unit-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .unit h2 { font-family: 'Playfair Display', serif; font-size: 1.8rem; color: var(--blue); margin-bottom: 1.5rem; }
+
+    /* CONCEPT BOX */
+    .concept {
+      background: white;
+      border: 1px solid #dde8ff;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .concept h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+    .concept p, .concept li { color: var(--muted); font-size: 0.93rem; margin-bottom: 0.4rem; }
+    .concept ul, .concept ol { padding-left: 1.2rem; }
+    .concept li { margin-bottom: 0.3rem; }
+
+    /* FORMULA BOX */
+    .formula {
+      background: var(--light);
+      border-left: 4px solid var(--accent);
+      border-radius: 0 0.75rem 0.75rem 0;
+      padding: 1rem 1.25rem;
+      margin: 0.75rem 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1rem;
+      color: var(--blue);
       font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: color 0.2s;
     }
-    nav a:hover { color: #c8922a; }
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
+
+    /* COLOR VARIANTS */
+    .green-box { background: var(--green-light); border-color: var(--green); }
+    .green-box h3 { color: var(--green); }
+    .green-formula { background: var(--green-light); border-left-color: var(--green); color: var(--green); }
+
+    .purple-box { background: var(--purple-light); border-color: var(--purple); }
+    .purple-box h3 { color: var(--purple); }
+    .purple-formula { background: var(--purple-light); border-left-color: var(--purple); color: var(--purple); }
+
+    .gold-box { background: var(--gold-light); border-color: var(--gold); }
+    .gold-box h3 { color: var(--gold); }
+    .gold-formula { background: var(--gold-light); border-left-color: var(--gold); color: var(--gold); }
+
+    .red-box { background: var(--red-light); border-color: var(--red); }
+    .red-box h3 { color: var(--red); }
+
+    /* EXAMPLE BOX */
+    .example {
+      background: #f8f9ff;
+      border: 1px dashed #aac0ff;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 0.75rem 0;
     }
-    .nav-toggle span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #4a2c0a;
-      border-radius: 2px;
-    }
+    .example-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+    .example p { font-size: 0.9rem; color: var(--text); }
+    .example .step { font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: var(--blue); margin: 0.2rem 0; }
+    .example .answer { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; color: var(--green); font-weight: 700; background: var(--green-light); display: inline-block; padding: 0.2rem 0.6rem; border-radius: 0.4rem; margin-top: 0.5rem; }
+
+    /* TIP */
+    .tip { background: #fffbe8; border-left: 4px solid #f5a623; border-radius: 0 0.75rem 0.75rem 0; padding: 0.75rem 1rem; margin: 0.75rem 0; font-size: 0.88rem; color: #7a5a0a; }
+    .tip strong { color: #5a3a00; }
+
+    /* TABLE */
+    table { width: 100%; border-collapse: collapse; margin: 0.75rem 0; font-size: 0.88rem; }
+    th { background: var(--blue); color: white; padding: 0.6rem 1rem; text-align: left; font-size: 0.8rem; letter-spacing: 0.05em; }
+    td { padding: 0.6rem 1rem; border-bottom: 1px solid #eef1ff; color: var(--text); font-family: 'JetBrains Mono', monospace; }
+    tr:nth-child(even) td { background: #f5f8ff; }
+
+    /* GRID */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem; }
+
+    /* FOOTER */
+    footer { background: var(--blue); color: white; text-align: center; padding: 2rem; font-size: 0.85rem; opacity: 0.9; }
+    footer a { color: #aac0ff; }
+
     @media (max-width: 640px) {
       .nav-toggle { display: flex; }
-      nav ul {
-        display: none;
-        position: fixed;
-        top: 57px; left: 0; right: 0;
-        background: rgba(253, 246, 236, 0.98);
-        flex-direction: column;
-        align-items: center;
-        padding: 1rem 0 1.5rem;
-        border-bottom: 1px solid #e8d5b7;
-      }
+      nav ul { display: none; position: fixed; top: 57px; left: 0; right: 0; background: var(--blue); flex-direction: column; align-items: center; padding: 1rem 0 1.5rem; }
       nav ul.open { display: flex; }
       nav ul li { width: 100%; text-align: center; }
       nav ul li a { display: block; padding: 0.75rem 2rem; }
+      .two-col { grid-template-columns: 1fr; }
+      main { padding: 1rem 1.25rem 4rem; }
+      .toc { margin: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <nav>
-    <a href="/" class="logo">🥪 Panini</a>
-    <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul>
-      <li><a href="/" onclick="document.querySelector('nav ul').classList.remove('open')">Home</a></li>
-      <li><a href="/dilophosaurus" onclick="document.querySelector('nav ul').classList.remove('open')">🦕 Dino</a></li>
-      <li><a href="/math" onclick="document.querySelector('nav ul').classList.remove('open')">Math</a></li>
-    </ul>
-  </nav>
+<nav>
+  <a href="/" class="logo">🥪 Panini</a>
+  <button class="nav-toggle" onclick="document.querySelector('nav ul').classList.toggle('open')" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul>
+    <li><a href="#circles">Circles</a></li>
+    <li><a href="#systems">Systems</a></li>
+    <li><a href="#quadratic">Quadratics</a></li>
+    <li><a href="#complex">Complex #s</a></li>
+    <li><a href="#imaginary">Imaginary</a></li>
+    <li><a href="/">🥪 Home</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-tag">IM2 Honors</span>
+  <h1>📐 Math Study Guide</h1>
+  <p>Simplified notes covering Circles, Linear-Quadratic Systems, Complex Numbers, and Imaginary Numbers.</p>
+</div>
+
+<!-- TOC -->
+<div class="toc">
+  <a href="#circles">📍 Module 12.1 — Circles</a>
+  <a href="#completing">📍 Completing the Square</a>
+  <a href="#systems">📍 Linear-Quadratic-Circular Systems</a>
+  <a href="#quadratic">📍 Real-World Quadratics</a>
+  <a href="#complex">📍 Complex Numbers</a>
+  <a href="#imaginary">📍 Imaginary Numbers & Powers of i</a>
+</div>
+
+<main>
+
+  <!-- ==================== CIRCLES ==================== -->
+  <div class="unit" id="circles">
+    <div class="unit-label">Module 12.1</div>
+    <h2>🔵 Circles</h2>
+
+    <div class="concept">
+      <h3>📌 Standard Form of a Circle</h3>
+      <div class="formula">(x - h)² + (y - k)² = r²</div>
+      <ul>
+        <li><strong>(h, k)</strong> = center of the circle</li>
+        <li><strong>r</strong> = radius</li>
+        <li>To find r from center + point: <code>r = √[(x-h)² + (y-k)²]</code></li>
+      </ul>
+    </div>
+
+    <div class="two-col">
+      <div class="example">
+        <div class="example-label">Example — Write the equation</div>
+        <p>Center C(1, -4), radius r = 2</p>
+        <div class="step">(x-1)² + (y+4)² = 4</div>
+        <div class="tip">⚠️ Don't leave it as r — square it! r² = 4</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Example — Center + Point</div>
+        <p>Center C(-2, 5), point P(-2, -1)</p>
+        <div class="step">r = √[(-2+2)² + (-1-5)²]</div>
+        <div class="step">r = √36 = 6</div>
+        <div class="answer">(x+2)² + (y-5)² = 36</div>
+      </div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📊 Graphing a Circle</h3>
+      <ul>
+        <li>Identify <strong>(h, k)</strong> as center → plot it</li>
+        <li>Find r = √(r²) → count r units in all 4 directions</li>
+        <li>Draw the circle through those 4 points</li>
+      </ul>
+      <div class="example">
+        <div class="example-label">Example</div>
+        <p>(x+2)² + (y+3)² = 9</p>
+        <div class="step">Center: (-2, -3) | r = √9 = 3</div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>🌍 Real-World: Points Inside/Outside Circle</h3>
+      <ul>
+        <li><strong>Inside</strong> circle: (x-h)² + (y-k)² <strong>&lt; r²</strong></li>
+        <li><strong>Outside</strong> circle: (x-h)² + (y-k)² <strong>&gt; r²</strong></li>
+        <li>On the circle: (x-h)² + (y-k)² <strong>= r²</strong></li>
+      </ul>
+      <div class="tip"><strong>Tip:</strong> Plug the point into the equation — compare result to r²</div>
+    </div>
+  </div>
+
+  <!-- ==================== COMPLETING THE SQUARE ==================== -->
+  <div class="unit" id="completing">
+    <div class="unit-label">Module 12.1 — Day 2</div>
+    <h2>✏️ Completing the Square (Circles)</h2>
+
+    <div class="concept">
+      <h3>📌 Why? To convert general form → standard form</h3>
+      <p>General form looks like: <strong>x² + y² + Dx + Ey + F = 0</strong></p>
+      <p>Steps to complete the square:</p>
+      <ol>
+        <li>Group x terms and y terms together</li>
+        <li>Take half of the coefficient, square it, add to BOTH sides</li>
+        <li>Factor each group into a perfect square binomial</li>
+        <li>Result: (x-h)² + (y-k)² = r²</li>
+      </ol>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example a — x² + y² + 4x + 6y + 4 = 0</div>
+      <div class="step">x² + 4x + ___ + y² + 6y + ___ = -4</div>
+      <div class="step">Half of 4 = 2 → 2² = 4 | Half of 6 = 3 → 3² = 9</div>
+      <div class="step">x² + 4x + 4 + y² + 6y + 9 = -4 + 4 + 9</div>
+      <div class="answer">(x+2)² + (y+3)² = 9</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example b — 9x² + 9y² - 54x - 72y + 209 = 0</div>
+      <div class="step">Divide everything by 9 first!</div>
+      <div class="step">x² + y² - 6x - 8y + 209/9 = 0</div>
+      <div class="step">Complete the square for x and y...</div>
+      <div class="answer">(x-3)² + (y-4)² = 16/9</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example c — 25x² + 25y² + 450x - 550y + 825 = 0</div>
+      <div class="step">Divide by 25 → x² + y² + 18x - 22y + 33 = 0</div>
+      <div class="step">Complete square → add 81 and 121 to both sides</div>
+      <div class="answer">(x+9)² + (y-11)² = 169</div>
+    </div>
+
+    <div class="tip"><strong>Remember:</strong> When you divide by a leading coefficient first, always do that BEFORE completing the square!</div>
+  </div>
+
+  <!-- ==================== SYSTEMS ==================== -->
+  <div class="unit" id="systems">
+    <div class="unit-label">Module 12.3</div>
+    <h2>🔗 Solving Linear-Quadratic-Circular Systems</h2>
+
+    <div class="concept">
+      <h3>📌 What is it?</h3>
+      <p>Finding the coordinates where two graphs <strong>intersect</strong>. Can have <strong>one, two, or no</strong> solutions.</p>
+    </div>
+
+    <div class="concept green-box">
+      <h3>🔍 How to Identify the Type of Equation</h3>
+      <table>
+        <tr><th>Type</th><th>Form</th><th>Clue</th></tr>
+        <tr><td>Linear</td><td>y = mx + b</td><td>Neither x nor y is squared</td></tr>
+        <tr><td>Parabola (vertical)</td><td>y = a(x-h)² + k</td><td>x is squared</td></tr>
+        <tr><td>Parabola (horizontal)</td><td>x = a(y-k)² + h</td><td>y is squared</td></tr>
+        <tr><td>Circle</td><td>(x-h)²+(y-k)²=r²</td><td>Both x AND y squared</td></tr>
+      </table>
+    </div>
+
+    <div class="concept">
+      <h3>🛠️ Method 1 — Solve by Graphing</h3>
+      <p>Solutions = where graphs intersect on the coordinate plane</p>
+      <div class="example">
+        <div class="example-label">Example</div>
+        <p>y + 3x = 0 → linear → y = -3x</p>
+        <p>y - 6 = -3x² → parabola → y = -3x² + 6, vertex (0,6)</p>
+        <div class="step">Graph both → find intersection points</div>
+        <div class="answer">Solutions: (-1, 3) and (2, -6)</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>🛠️ Method 2 — Solve Algebraically (Substitution)</h3>
+      <ol>
+        <li>Solve the simpler equation for x or y</li>
+        <li>Substitute into the other equation</li>
+        <li>Solve for the variable</li>
+        <li>Plug back in to find the other coordinate</li>
+        <li>Write answers as coordinate pairs</li>
+      </ol>
+      <div class="example">
+        <div class="example-label">Example — Circle + Linear</div>
+        <p>x² + y² + 3√y - 30 = 0 (circle) and x - 2y + 3 = 0 (linear)</p>
+        <div class="step">From linear: x = 2y - 3</div>
+        <div class="step">Sub in: (2y-3)² + y² + 3(2y-3) + y - 30 = 0</div>
+        <div class="step">Expand → 5y² - 5y - 30 = 0 → 5(y²-y-6) = 0</div>
+        <div class="step">5(y+2)(y-3) = 0 → y = -2, y = 3</div>
+        <div class="step">1st: y=-2 → x=2(-2)-3=-7 → (-7,-2)</div>
+        <div class="step">2nd: y=3 → x=2(3)-3=3 → (3,3)</div>
+        <div class="answer">Solutions: (-7, -2) and (3, 3)</div>
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Example — Parabola + Linear</div>
+      <p>x - 6 = ½y² (parabola) and 2x - y = 6 (linear)</p>
+      <div class="step">From linear: x = (y+6)/2</div>
+      <div class="step">Sub → solve → y = -6 or y = 3</div>
+      <div class="answer">Solutions: (0, -6) and (9/2, 3)</div>
+    </div>
+  </div>
+
+  <!-- ==================== QUADRATICS ==================== -->
+  <div class="unit" id="quadratic">
+    <div class="unit-label">Real World Applications</div>
+    <h2>🌍 Solving Real-World Quadratic Problems</h2>
+
+    <div class="concept">
+      <h3>📌 Key Falling Object Formulas</h3>
+      <div class="formula">d(t) = 16t²</div>
+      <p style="margin: 0.4rem 0 0.75rem; color: var(--muted); font-size:0.9rem">Distance fallen (in feet) at time t seconds</p>
+      <div class="formula">h(t) = h₀ - 16t²</div>
+      <p style="margin: 0.4rem 0 0; color: var(--muted); font-size:0.9rem">Height (in feet) at time t — h₀ is the starting/initial height</p>
+      <div class="tip"><strong>Note:</strong> Negative values of t are rejected — time can't be negative!</div>
+    </div>
+
+    <div class="two-col">
+      <div class="example">
+        <div class="example-label">Example a — Drop a water balloon 4 feet</div>
+        <div class="step">d(t) = 16t²</div>
+        <div class="step">4 = 16t²</div>
+        <div class="step">4/16 = t² → t² = 1/4</div>
+        <div class="answer">t = 1/2 second</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Example b — Rooftop 50ft, passes 24ft window</div>
+        <div class="step">h(t) = h₀ - 16t² = 50 - 16t²</div>
+        <div class="step">24 = 50 - 16t²</div>
+        <div class="step">-26 = -16t² → t² = 26/16</div>
+        <div class="step">t = √(26/4) = √26/4 ≈ 1.3 sec</div>
+        <div class="answer">t ≈ 1.3 seconds</div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>📐 Area Problems with Quadratics</h3>
+      <div class="example">
+        <div class="example-label">Example — Larger square is 60 in² more than smaller</div>
+        <p>Smaller side = x, Larger side = 4x</p>
+        <div class="step">x(x) + 60 = (4x)(4x)</div>
+        <div class="step">x² + 60 = 16x²</div>
+        <div class="step">60 = 15x² → x² = 4 → x = 2</div>
+        <div class="answer">Smaller side = 2 in | Larger side = 8 in</div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>🔢 The Discriminant — Does It Have Real Solutions?</h3>
+      <div class="formula">b² - 4ac</div>
+      <table>
+        <tr><th>Discriminant</th><th>Solutions</th></tr>
+        <tr><td>b² - 4ac &gt; 0</td><td>2 real solutions</td></tr>
+        <tr><td>b² - 4ac = 0</td><td>1 real solution</td></tr>
+        <tr><td>b² - 4ac &lt; 0</td><td>No real solutions (non-real/complex)</td></tr>
+      </table>
+      <div class="example">
+        <div class="example-label">Example — Garden area 700 ft²?</div>
+        <p>A(w) = w(50-w), can it have area 700?</p>
+        <div class="step">700 = 50w - w² → w² - 50w + 700 = 0</div>
+        <div class="step">b²-4ac = (-50)²-4(1)(700) = 2500-2800 = -300</div>
+        <div class="answer">No real solution → garden CANNOT have 700 ft² area</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== COMPLEX NUMBERS ==================== -->
+  <div class="unit" id="complex">
+    <div class="unit-label">Complex Numbers</div>
+    <h2>🔮 Complex Numbers</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 What is a Complex Number?</h3>
+      <div class="formula">a + bi</div>
+      <ul>
+        <li><strong>a</strong> = real part</li>
+        <li><strong>b</strong> = imaginary part (the coefficient of i)</li>
+        <li><strong>i = √(-1)</strong> or <strong>i² = -1</strong></li>
+      </ul>
+      <div class="tip"><strong>Remember:</strong> Real numbers and pure imaginary numbers are BOTH subsets of complex numbers!</div>
+    </div>
+
+    <div class="concept">
+      <h3>🏷️ Identifying Parts</h3>
+      <table>
+        <tr><th>Number</th><th>Real Part</th><th>Imaginary Part</th><th>Set(s)</th></tr>
+        <tr><td>9 + 5i</td><td>9</td><td>5</td><td>Complex</td></tr>
+        <tr><td>-7i</td><td>0</td><td>-7</td><td>Imaginary, Complex</td></tr>
+        <tr><td>11</td><td>11</td><td>0</td><td>Real, Complex</td></tr>
+      </table>
+    </div>
+
+    <div class="concept green-box">
+      <h3>➕ Adding & Subtracting Complex Numbers</h3>
+      <p>Combine real parts together, imaginary parts together.</p>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">(17-6i) - (9+10i)</div>
+          <div class="step">17-6i - 9-10i</div>
+          <div class="answer">8 - 16i</div>
+        </div>
+        <div class="example">
+          <div class="example-label">(16+17i) + (-8-12i)</div>
+          <div class="answer">8 + 5i</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>✖️ Multiplying Complex Numbers</h3>
+      <p>FOIL like normal, then replace i² with -1.</p>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">(6-5i)(3-10i)</div>
+          <div class="step">18-60i-15i+50i²</div>
+          <div class="step">18-75i+50(-1) = 18-75i-50</div>
+          <div class="answer">-32 - 75i</div>
+        </div>
+        <div class="example">
+          <div class="example-label">(8+15i)(11+i)</div>
+          <div class="step">88+8i+165i+15i²</div>
+          <div class="step">88+173i+15(-1)</div>
+          <div class="answer">73 + 173i</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>➗ Dividing Complex Numbers</h3>
+      <p>Multiply top and bottom by the <strong>conjugate</strong> of the denominator. (Flip the sign of the imaginary part)</p>
+      <div class="tip"><strong>Rule:</strong> NO imaginary numbers in the denominator!</div>
+      <div class="example">
+        <div class="example-label">(1-5i) / (9i-i)</div>
+        <div class="step">Multiply by conjugate → simplify</div>
+        <div class="step">Use: (a+bi)(a-bi) = a² + b²</div>
+      </div>
+      <div class="example">
+        <div class="example-label">(8+9i)(4-7i) / (9+7i)(4-7i)</div>
+        <div class="step">= (72-56i+36i-63i²) / (81+49)</div>
+        <div class="step">= (72-20i+63) / 130</div>
+        <div class="answer">= (135-20i) / 130 = 27/26 - 2i/13</div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>⚡ Simplifying Powers of i</h3>
+      <p>Multiply complex numbers with exponents by expanding step by step.</p>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">(6i)(-3i)</div>
+          <div class="step">= -18i² = -18(-1)</div>
+          <div class="answer">= 18</div>
+        </div>
+        <div class="example">
+          <div class="example-label">(4i)(-2i)²(6i)</div>
+          <div class="step">= 4i · 4i² · 6i = 4i(-4)(6i)</div>
+          <div class="step">= 48(-1)·i² = 48(-1)(-1)</div>
+          <div class="answer">= 48i</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="example-label">(3i)³</div>
+        <div class="step">= 27i³ = 27·i²·i = 27(-1)(i)</div>
+        <div class="answer">= -27i</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== IMAGINARY ==================== -->
+  <div class="unit" id="imaginary">
+    <div class="unit-label">Imaginary Numbers</div>
+    <h2>🌀 Powers of i — The Cycle</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 The i Cycle (repeats every 4!)</h3>
+      <table>
+        <tr><th>Power</th><th>Value</th><th>Why</th></tr>
+        <tr><td>i⁰</td><td>1</td><td>anything⁰ = 1</td></tr>
+        <tr><td>i¹</td><td>i</td><td>just i</td></tr>
+        <tr><td>i²</td><td>-1</td><td>definition of i</td></tr>
+        <tr><td>i³</td><td>-i</td><td>i²·i = -1·i</td></tr>
+        <tr><td>i⁴</td><td>1</td><td>i²·i² = (-1)(-1)</td></tr>
+        <tr><td>i⁵</td><td>i</td><td>cycle repeats...</td></tr>
+        <tr><td>i⁶</td><td>-1</td><td></td></tr>
+        <tr><td>i⁷</td><td>-i</td><td></td></tr>
+      </table>
+      <div class="tip"><strong>Shortcut:</strong> Divide exponent by 4 → use the remainder!<br>
+      Remainder 0→1, Remainder 1→i, Remainder 2→-1, Remainder 3→-i</div>
+    </div>
+
+    <div class="concept">
+      <h3>🧮 Simplifying Large Powers of i</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">i⁴⁴</div>
+          <div class="step">44 ÷ 4 = 11 remainder 0</div>
+          <div class="answer">= 1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">i¹³</div>
+          <div class="step">13 ÷ 4 = 3 remainder 1</div>
+          <div class="answer">= i</div>
+        </div>
+        <div class="example">
+          <div class="example-label">i¹⁰</div>
+          <div class="step">10 ÷ 4 = 2 remainder 2</div>
+          <div class="answer">= -1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">i²²</div>
+          <div class="step">22 ÷ 4 = 5 remainder 2</div>
+          <div class="answer">= -1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">i⁸²</div>
+          <div class="step">82 ÷ 4 = 20 remainder 2</div>
+          <div class="answer">= -1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">i²⁰¹¹</div>
+          <div class="step">2011 ÷ 4 = 502 remainder 3</div>
+          <div class="answer">= -i</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>🔢 Finding Complex Solutions of Quadratics</h3>
+      <p>When discriminant &lt; 0, solutions are complex (non-real). Use quadratic formula normally — √(negative) becomes i.</p>
+      <div class="example">
+        <div class="example-label">Solve: 5(x+3)² + 74 = 1</div>
+        <div class="step">5(x+3)² = -73</div>
+        <div class="step">(x+3)² = -73/5</div>
+        <div class="step">x+3 = ±√(-73/5) = ±i√(73/5)</div>
+        <div class="answer">x = -3 ± i√365/5 ≈ -3 ± 3.82i</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Solve: 3x² + x + 6 = 0 (quadratic formula)</div>
+        <div class="step">x = (-1 ± √(1-72)) / 6</div>
+        <div class="step">x = (-1 ± √(-71)) / 6</div>
+        <div class="answer">x = (-1 ± i√71) / 6 ≈ -1/6 ± 1.41i</div>
+      </div>
+    </div>
+
+    <div class="concept red-box">
+      <h3>⚠️ Complex Solutions from Real-World Problems</h3>
+      <p>If you get a complex/imaginary answer for a real-world problem (time, distance, area)...</p>
+      <div class="formula">→ That answer means NO REAL SOLUTION exists for that scenario!</div>
+      <p style="color:var(--muted); margin-top:0.5rem; font-size:0.9rem">Example: Garden can't have 700 ft² → discriminant negative → non-real → impossible!</p>
+    </div>
+
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="unit" id="quickref">
+    <div class="unit-label">Cheat Sheet</div>
+    <h2>⚡ Quick Reference</h2>
+    <div class="concept">
+      <h3>All the Key Formulas</h3>
+      <div class="formula">Circle: (x-h)² + (y-k)² = r²</div>
+      <div class="formula green-formula">Radius: r = √[(x-h)² + (y-k)²]</div>
+      <div class="formula purple-formula">i = √(-1) | i² = -1 | cycle: i, -1, -i, 1 (repeat)</div>
+      <div class="formula">i^n → divide n by 4, use remainder (0→1, 1→i, 2→-1, 3→-i)</div>
+      <div class="formula gold-formula">d(t) = 16t² | h(t) = h₀ - 16t²</div>
+      <div class="formula">Discriminant: b²-4ac → (+)=2 real, (0)=1 real, (-)=no real</div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <strong>panini-sandwich.com/math</strong> — IM2 Honors Study Guide 📐<br>
+  <span style="opacity:0.6; font-size:0.8rem;">Based on your class notes | <a href="/">← Back to Panini 🥪</a></span>
+</footer>
 
 </body>
 </html>
