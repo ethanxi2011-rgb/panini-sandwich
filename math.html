@@ -221,6 +221,10 @@
   <a href="#simplifyroots">📍 Simplifying Radicals</a>
   <a href="#discdetail">📍 The Discriminant</a>
   <a href="#imagsolve">📍 Imaginary Solutions</a>
+  <a href="#intropolynomials">📍 Intro to Polynomials</a>
+  <a href="#simplifypolynomials">📍 Simplifying & Standard Form</a>
+  <a href="#mod51day1">📍 Multiplying Mono × Poly (5.1)</a>
+  <a href="#mod53">📍 Special Products (5.3)</a>
   <a href="#polynomials">📍 Multiplying Polynomials (5.2)</a>
   <a href="#mod61day1">📍 Graphing at Origin (6.1 D1)</a>
   <a href="#mod61day2">📍 Domain, Range & Comparison (6.1 D2)</a>
@@ -1702,6 +1706,239 @@
       <div class="example">
         <div class="example-label">f(x) = x² - 8x - 9, vertex (-4, 7)... wait: opens up, min=7</div>
         <div class="answer">D: (-∞,∞) | R: (-∞, 7] or {y|y ≤ 7}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== INTRO TO POLYNOMIALS ==================== -->
+  <div class="unit" id="intropolynomials">
+    <div class="unit-label">Introduction to Polynomials</div>
+    <h2>📚 Introduction to Polynomials</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 What is a Monomial?</h3>
+      <p>A monomial is an expression consisting of a <strong>number, variable, or product of numbers and variables</strong> with whole number exponents.</p>
+      <ul>
+        <li>Terms of an expression are separated by <strong>plus signs</strong></li>
+        <li>Remember: x - y = x + (-y)</li>
+        <li>A monomial can have <strong>at most one term</strong></li>
+        <li>A monomial <strong>cannot have a variable in its denominator</strong></li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h3>✅ Is it a Monomial? — Examples</h3>
+      <table>
+        <tr><th>Term</th><th>Monomial?</th><th>Reason</th></tr>
+        <tr><td>5ab²</td><td>✅ Yes</td><td>Product of numbers & variables</td></tr>
+        <tr><td>x²</td><td>✅ Yes</td><td>Product (variable with whole number exponent)</td></tr>
+        <tr><td>√y = y^½</td><td>❌ No</td><td>Exponent is NOT a whole number (½)</td></tr>
+        <tr><td>2²y</td><td>✅ Yes</td><td>Product (2² is just a number)</td></tr>
+        <tr><td>5/k²</td><td>❌ No</td><td>Variable in the denominator</td></tr>
+        <tr><td>-4xy</td><td>✅ Yes</td><td>Product of numbers and variables</td></tr>
+        <tr><td>5x + 7</td><td>❌ No</td><td>Separated by plus sign (two terms)</td></tr>
+        <tr><td>k²/4</td><td>✅ Yes</td><td>Product (4 is just a constant denominator)</td></tr>
+        <tr><td>0.25x⁻¹</td><td>❌ No</td><td>Negative exponent (not whole number)</td></tr>
+        <tr><td>y/x²</td><td>❌ No</td><td>Variable in denominator</td></tr>
+        <tr><td>1/xy⁴</td><td>❌ No</td><td>Variables in denominator (can't have fractional exponents)</td></tr>
+        <tr><td>5</td><td>✅ Yes</td><td>Just a number — that's fine!</td></tr>
+      </table>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📦 Classifying Polynomials by Number of Terms</h3>
+      <table>
+        <tr><th>Type</th><th>Terms</th><th>Examples</th></tr>
+        <tr><td>Monomial</td><td>1 term</td><td>2x, 15xy, 2.05x²y²z²</td></tr>
+        <tr><td>Binomial</td><td>2 terms</td><td>15y⁴-2y, 2x²+2xy, 8z⁸-4y³</td></tr>
+        <tr><td>Trinomial</td><td>3 terms</td><td>3y²+4y-5, 20x⁴y²+15y²+y, 7y⁵y⁸-3+x</td></tr>
+        <tr><td>Polynomial</td><td>4+ terms</td><td>3y+y-2x²+3y²+2z, 2x-3y+2x2-4, 1xy²+3x², 2+2y+1</td></tr>
+      </table>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>🎓 Degree of a Polynomial</h3>
+      <p>Found by <strong>adding the exponents of each term</strong> (variables only), then choosing the largest value.</p>
+      <div class="example">
+        <div class="example-label">Ex 1 — Classify by degree and number of terms</div>
+        <div class="step">a) 7x²-5x²y²+6 → 7x²(deg 2), 5x²y²(deg 4), 6(deg 0) → <strong>6th degree binomial</strong></div>
+        <div class="step">b) 3³+2n²+8n → <strong>2nd degree trinomial</strong></div>
+        <div class="step">c) 3x²y²+3xy²+5xy → 3x²y²(deg 4), 3xy²(deg 3), 5xy(deg 2) → <strong>4th degree trinomial</strong></div>
+        <div class="step">d) 2xy-7x²+34x-10 → <strong>4th degree polynomial</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SIMPLIFYING POLYNOMIALS ==================== -->
+  <div class="unit" id="simplifypolynomials">
+    <div class="unit-label">Simplifying & Standard Form</div>
+    <h2>📐 Simplifying Polynomials & Standard Form</h2>
+
+    <div class="concept">
+      <h3>📌 Simplifying Polynomials</h3>
+      <p>Identify <strong>like terms</strong> by using the <strong>variables and exponents</strong>, then add or subtract the term's <strong>coefficients</strong>.</p>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 2 — Simplify</h3>
+      <div class="example">
+        <div class="example-label">a) (-2y³ - 8y² + y² + 2y)</div>
+        <div class="step">Combine like terms: -2y³ + (-8y²+y²) + 2y</div>
+        <div class="answer">-2y³ - 7y² + 2y</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) (p²q - 4p²q - 4p³q + 3p²q - 3p³q² - p⁵q⁴)</div>
+        <div class="step">Group like terms: (p²q-4p²q+3p²q) + (-4p³q-3p³q²) - p⁵q⁴</div>
+        <div class="answer">-p⁵q⁴ - 3p³q² - 4p³q + 0p²q = -p⁵q⁴ - 3p³q² - 4p³q</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>📌 Standard Form</h3>
+      <p>Rearrange terms from <strong>largest exponents to smallest exponents</strong>.</p>
+      <p><strong>Leading coefficient</strong> = the number in front of the term with the <strong>largest exponent</strong>.</p>
+      <div class="example">
+        <div class="example-label">Ex 3 — Write in standard form, give leading coefficient</div>
+        <div class="step">a) 20x - 4x³ + 1 - 2x² → <strong>-4x³ - 2x² + 20x + 1</strong> | Leading Co.: <strong>-4</strong></div>
+        <div class="step">b) 10 - 3x² + x⁵ + 4x³ → <strong>x⁵ + 4x³ - 3x² + 10</strong> | Leading Co.: <strong>1</strong></div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>➕➖ Adding and Subtracting Polynomials</h3>
+      <div class="tip"><strong>Key:</strong> Distribute the negative sign when subtracting! (5x+2)-(3x-1) = 5x+2-3x+1</div>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) (5x²+2x-1) + (4x²-x+2)</div>
+          <div class="step">= 5x²+4x² + 2x-x + -1+2</div>
+          <div class="answer">= 9x² + x + 1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) (-x²+2) + (-4x²+y+x)</div>
+          <div class="step">= -x²-4x² + x + y + 2</div>
+          <div class="answer">= -5x² + x + y + 2</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) (5x+2) - (-2x²-3x+4)</div>
+          <div class="step">= 5x+2 +2x²+3x-4</div>
+          <div class="answer">= 2x² + 8x - 2</div>
+        </div>
+        <div class="example">
+          <div class="example-label">d) (y²+y-1) - (-2y²-y+1)</div>
+          <div class="step">= y²+y-1 +2y²+y-1</div>
+          <div class="answer">= 3y² + 2y - 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 5.1 DAY 1 ==================== -->
+  <div class="unit" id="mod51day1">
+    <div class="unit-label">Module 5.1 — Day 1</div>
+    <h2>✖️ Multiplying Polynomials — Day 1 (Monomial × Polynomial)</h2>
+
+    <div class="concept green-box">
+      <h3>📌 Method: Distribute the monomial to every term</h3>
+      <div class="formula green-formula">a(b + c + d) = ab + ac + ad</div>
+      <p>Multiply coefficients together, add exponents of same variables.</p>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Multiply and Simplify</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) (6xy³)(-4y³)</div>
+          <div class="step">= 6·(-4) · xy³·y³</div>
+          <div class="step">= -24 · x · y⁶</div>
+          <div class="answer">= -24xy⁶</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) (3a²+4a+1)(2a²)</div>
+          <div class="step">= 3a²·2a² + 4a·2a² + 1·2a²</div>
+          <div class="step">= 6a⁴ + 8a³ + 2a²</div>
+          <div class="answer">= 6a⁴ + 8a³ + 2a²</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>🌍 Ex 2 — Real World: Dior's Paper Problem</h3>
+      <div class="example">
+        <div class="example-label">Dior needs paper where length is 4 MORE than width. Area must be as close to 50m² as possible. Find length and width.</div>
+        <div class="step">Let width = w, length = w + 4</div>
+        <div class="step">Area = Length × Width = (w+4)(w) = w² + 4w</div>
+        <div class="step">Set ≈ 50: w² + 4w = 50</div>
+        <div class="step">Try w=5: 25+20=45m² (too small)</div>
+        <div class="step">Try w=6: 36+24=60m² (too big)</div>
+        <div class="step">But area must be a whole number closest to 50m²</div>
+        <div class="answer">Width = 5, Length = 9 (area = 45m²) OR Width = 6, Length = 10 (area = 60m²)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 5.3 — SPECIAL PRODUCTS ==================== -->
+  <div class="unit" id="mod53">
+    <div class="unit-label">Module 5.3</div>
+    <h2>⭐ Special Products of Binomials</h2>
+
+    <div class="two-col">
+      <div class="concept green-box">
+        <h3>📌 Perfect Square Trinomials</h3>
+        <div class="formula green-formula">(a + b)² = a² + 2ab + b²</div>
+        <div class="formula green-formula">(a - b)² = a² - 2ab + b²</div>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem">Square first, double middle, square last!</p>
+      </div>
+      <div class="concept red-box">
+        <h3>📌 Difference of Squares</h3>
+        <div class="formula">(a + b)(a - b) = a² - b²</div>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem">Middle terms cancel out! Only works with subtraction.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Multiply using special product rules</h3>
+      <div class="example">
+        <div class="example-label">a) (x + 4)² = (x+4)(x+4)</div>
+        <div class="step">= x² + 4x + 4x + 16</div>
+        <div class="answer">= x² + 8x + 16</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) (3xy - 2y)² = (3xy-2y)(3xy-2y)</div>
+        <div class="step">= 9x²y² - 6xy² - 6xy² + 4y²</div>
+        <div class="answer">= 9x²y² - 12xy² + 4y²</div>
+      </div>
+      <div class="example">
+        <div class="example-label">c) (4 - 3x²)² — using PST formula directly</div>
+        <div class="step">a=4, b=3x² → a²=16, 2ab=24x², b²=9x⁴</div>
+        <div class="answer">= 16 - 24x² + 9x⁴</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 2 — Difference of Squares</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) (x+2y)(x-2y)</div>
+          <div class="step">a=x, b=2y → a²-b²</div>
+          <div class="answer">= x² - 4y²</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) (-y²+3x)(3x+y²)</div>
+          <div class="step">= (3x-y²)(3x+y²) → a=3x, b=y²</div>
+          <div class="answer">= 9x² - y⁴</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>🌍 Real World: Landscape/Walkway Word Problem</h3>
+      <div class="example">
+        <div class="example-label">Landscape architect designing a rectangular garden 20ft long, 15ft wide in a local park. Adds walkway of uniform width around it. When x=4ft, what is total area including walkway?</div>
+        <div class="step">Garden dimensions with walkway: (20+2x) × (15+2x)</div>
+        <div class="step">Polynomial: (15+2x)(20+2x) = 300+30x+40x+4x²</div>
+        <div class="step">= 4x² + 70x + 300</div>
+        <div class="step">When x=4: (15+2·4)(20+2·4) = (15+8)(20+8) = 23·28</div>
+        <div class="answer">= 644 ft² (total area including walkway)</div>
       </div>
     </div>
   </div>
