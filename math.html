@@ -221,6 +221,11 @@
   <a href="#simplifyroots">📍 Simplifying Radicals</a>
   <a href="#discdetail">📍 The Discriminant</a>
   <a href="#imagsolve">📍 Imaginary Solutions</a>
+  <a href="#polynomials">📍 Multiplying Polynomials (5.2)</a>
+  <a href="#mod61day1">📍 Graphing at Origin (6.1 D1)</a>
+  <a href="#mod61day2">📍 Domain, Range & Comparison (6.1 D2)</a>
+  <a href="#mod62">📍 Vertex Form & Transformations (6.2)</a>
+  <a href="#mod63day1">📍 Identifying Quadratics (6.3 D1)</a>
   <a href="#graphzeros">📍 Graphing Using Zeros</a>
   <a href="#focusdirectrix2">📍 Equation from Focus & Directrix</a>
   <a href="#standardgraph">📍 Graphing in Standard Form</a>
@@ -1697,6 +1702,313 @@
       <div class="example">
         <div class="example-label">f(x) = x² - 8x - 9, vertex (-4, 7)... wait: opens up, min=7</div>
         <div class="answer">D: (-∞,∞) | R: (-∞, 7] or {y|y ≤ 7}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 5.2 — MULTIPLYING POLYNOMIALS ==================== -->
+  <div class="unit" id="polynomials">
+    <div class="unit-label">Module 5.2 — Day 2</div>
+    <h2>✖️ Multiplying Polynomials</h2>
+
+    <div class="concept">
+      <h3>📌 Two Methods</h3>
+      <div class="two-col">
+        <div class="concept green-box" style="margin:0">
+          <h3>Method 1: F.O.I.L</h3>
+          <div class="formula green-formula">First · Outside · Inside · Last</div>
+          <p>For two binomials only</p>
+        </div>
+        <div class="concept purple-box" style="margin:0">
+          <h3>Method 2: Distribution</h3>
+          <p>Distribute each term of first polynomial to every term of second</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Multiply (2x + 4)(x + 3)</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">FOIL Method</div>
+          <div class="step">F: 2x·x = 2x²</div>
+          <div class="step">O: 2x·3 = 6x</div>
+          <div class="step">I: 4·x = 4x</div>
+          <div class="step">L: 4·3 = 12</div>
+          <div class="answer">2x² + 10x + 12</div>
+        </div>
+        <div class="example">
+          <div class="example-label">Distribution Method</div>
+          <div class="step">2x(x+3) + 4(x+3)</div>
+          <div class="step">2x²+6x + 4x+12</div>
+          <div class="answer">2x² + 10x + 12 ✓</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 2 — Multiply (2x + 1)(2x² + 4x + 1)</h3>
+      <p>More than 2 terms → use Distribution</p>
+      <div class="example">
+        <div class="step">2x(2x²+4x+1) + 1(2x²+4x+1)</div>
+        <div class="step">4x³+8x²+2x + 2x²+4x+1</div>
+        <div class="answer">4x³ + 10x² + 6x + 1</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 3 — Multiply (x⁴ + x³ + 4x)(x² - x² - 3x⁴) using Box Method</h3>
+      <p>Box method: put one polynomial along top, other along side, fill each cell by multiplying, then combine like terms.</p>
+      <div class="example">
+        <div class="step">Top: x⁴ | x³ | 4x</div>
+        <div class="step">Side: x² | -y² | -3x⁴</div>
+        <div class="step">Fill boxes and add diagonals...</div>
+        <div class="answer">2x⁷ + 2x⁶ + 4x⁶ - 3x⁸ - 12x⁵ - 4x³</div>
+      </div>
+      <div class="tip"><strong>Box Method:</strong> Works for any size polynomials! Draw a grid, multiply each pair, then collect like terms diagonally.</div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 6.1 DAY 1 — GRAPHING AT ORIGIN ==================== -->
+  <div class="unit" id="mod61day1">
+    <div class="unit-label">Module 6.1 — Day 1</div>
+    <h2>📉 Graphing Quadratic Functions at the Origin</h2>
+
+    <div class="concept">
+      <h3>📌 Standard Form</h3>
+      <div class="formula">f(x) = ax² + bx + c</div>
+      <p>When b = 0 and c = 0 → simplifies to <strong>f(x) = ax²</strong> (parent form)</p>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📌 What "a" Determines</h3>
+      <table>
+        <tr><th>Value of a</th><th>Direction</th><th>Width</th></tr>
+        <tr><td>a &gt; 0 (positive)</td><td>Opens UP</td><td>—</td></tr>
+        <tr><td>a &lt; 0 (negative)</td><td>Opens DOWN</td><td>—</td></tr>
+        <tr><td>|a| &gt; 1</td><td>—</td><td>Narrower (Stretch)</td></tr>
+        <tr><td>|a| = 1</td><td>—</td><td>Same as parent graph</td></tr>
+        <tr><td>|a| &lt; 1</td><td>—</td><td>Wider (Compressed)</td></tr>
+      </table>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>📌 Parent Graph: f(x) = x² (where a = 1)</h3>
+      <table>
+        <tr><th>x</th><th>f(x)</th></tr>
+        <tr><td>-2</td><td>4</td></tr>
+        <tr><td>-1</td><td>1</td></tr>
+        <tr><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td></tr>
+        <tr><td>2</td><td>4</td></tr>
+      </table>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Graph, find: vertex, AOS, direction, stretch/compress, max/min</h3>
+
+      <div class="example">
+        <div class="example-label">a) f(x) = 2x² (a=2, opens up, narrower/stretch)</div>
+        <div class="step">Vertex: (0,0) | AOS: x=0 | Opens up | Vertically stretched | Min at 0</div>
+        <table style="margin-top:0.5rem; font-size:0.85rem;">
+          <tr><th>x</th><th>y</th></tr>
+          <tr><td>-2</td><td>8</td></tr><tr><td>-1</td><td>2</td></tr>
+          <tr><td>0</td><td>0</td></tr><tr><td>1</td><td>2</td></tr><tr><td>2</td><td>8</td></tr>
+        </table>
+      </div>
+
+      <div class="example">
+        <div class="example-label">b) f(x) = -½x² (a=-½, opens down, wider/compressed)</div>
+        <div class="step">Vertex: (0,0) | AOS: x=0 | Opens down | Compressed of wider | Max at 0</div>
+        <table style="margin-top:0.5rem; font-size:0.85rem;">
+          <tr><th>x</th><th>y</th></tr>
+          <tr><td>-2</td><td>-2</td></tr><tr><td>-1</td><td>-½</td></tr>
+          <tr><td>0</td><td>0</td></tr><tr><td>2</td><td>-2</td></tr>
+        </table>
+      </div>
+
+      <div class="example">
+        <div class="example-label">c) f(x) = ⅓x² (a=⅓, opens up, wider/compressed)</div>
+        <div class="step">Vertex: (0,0) | AOS: x=0 | Opens up | Compressed (wider) | Min at 0</div>
+        <table style="margin-top:0.5rem; font-size:0.85rem;">
+          <tr><th>x</th><th>y</th></tr>
+          <tr><td>0</td><td>0</td></tr><tr><td>1</td><td>⅓</td></tr><tr><td>2</td><td>4/3</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 6.1 DAY 2 ==================== -->
+  <div class="unit" id="mod61day2">
+    <div class="unit-label">Module 6.1 — Day 2</div>
+    <h2>📊 Graphing Quadratic Functions — Domain, Range & Comparison</h2>
+
+    <div class="concept">
+      <h3>📌 Domain & Range Defined</h3>
+      <ul>
+        <li><strong>Domain:</strong> The x-values of the graph</li>
+        <li><strong>Range:</strong> The y-values of the graph (based on y-value of vertex = "k")</li>
+      </ul>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 1 — Graph functions using a table, state domain & range, narrow/wider/same</h3>
+
+      <div class="example">
+        <div class="example-label">a) g(x) = 2x² → a=2, opens up, narrower</div>
+        <div class="step">D: (-∞, ∞) or {x | -∞ &lt; x &lt; ∞}</div>
+        <div class="step">R: {y | y ≥ 0} or [0, ∞)</div>
+        <div class="answer">Narrower than parent graph</div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">b) g(x) = -3x² → a=-3, opens down, narrower</div>
+        <div class="step">D: (-∞, ∞)</div>
+        <div class="step">R: (-∞, 0] or {y | y ≤ 0}</div>
+        <div class="answer">Opens down and narrower</div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">c) f(x) = ½x² → a=½, opens up, wider</div>
+        <div class="step">D: (-∞, ∞)</div>
+        <div class="step">R: {y | y ≥ 0} or [0, ∞)</div>
+        <div class="answer">Opens up and wider (compressed)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 6.2 — VERTEX FORM ==================== -->
+  <div class="unit" id="mod62">
+    <div class="unit-label">Module 6.2</div>
+    <h2>📈 Vertex Form of Quadratics — Transformations</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 Forms Review</h3>
+      <div class="formula">Standard Form: f(x) = ax² + bx + c</div>
+      <div class="formula purple-formula">Vertex Form: f(x) = a(x - h)² + k</div>
+      <p>where (h, k) are the vertex coordinates</p>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📐 Shortcut: Graphing from Vertex using Table</h3>
+      <table>
+        <tr><th>Horizontal from vertex</th><th>Vertical change</th></tr>
+        <tr><td>1 unit</td><td>1·a = a</td></tr>
+        <tr><td>2 units</td><td>4·a = 4a</td></tr>
+      </table>
+      <div class="tip">From vertex, go 1 right/left → move a up/down. Go 2 right/left → move 4a up/down.</div>
+    </div>
+
+    <div class="concept">
+      <h3>🔄 Transformations — How to Describe vs Parent Graph f(x) = x²</h3>
+      <table>
+        <tr><th>Parameter</th><th>Effect</th></tr>
+        <tr><td>a (negative)</td><td>Opens opposite direction (flips)</td></tr>
+        <tr><td>|a| &gt; 1</td><td>Vertically stretched (narrower)</td></tr>
+        <tr><td>|a| &lt; 1</td><td>Vertically compressed (wider)</td></tr>
+        <tr><td>h (in x-h)</td><td>Left or right movement of vertex</td></tr>
+        <tr><td>k</td><td>Up or down movement of vertex</td></tr>
+      </table>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 1 — Graph, describe transformations, AOS, min/max</h3>
+
+      <div class="example">
+        <div class="example-label">b) y = -(x+2)² - 4 → vertex (-2, -4), a = -1</div>
+        <div class="step">AOS: x = -2 | Max at -4</div>
+        <div class="step">Shortcut: 1 unit away → 1a = -1 | 2 units away → 4a = -4</div>
+        <div class="step">Transformations: 1) opens down 2) moved left 2 units 3) moved down 4 units</div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">c) f(x) = ⅓(x+3)² + 2 → vertex (-3, 2), a = ⅓</div>
+        <div class="step">AOS: x = -3 | Min at 2</div>
+        <div class="step">Shortcut: 1a = ⅓ | 4a = 4/3</div>
+        <div class="step">Transformations: 1) compressed 2) moved left 3 units 3) moved up 2 units</div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">d) y = -½x² + 2 → vertex (0, 2), a = -½</div>
+        <div class="step">AOS: x = 0 | Max at 2</div>
+        <div class="step">Shortcut: 1a = -½ | 4a = -2</div>
+        <div class="step">Transformations: 1) moved up 2 units 2) opens down 3) compressed</div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>✏️ Ex 2 — Write the rule (equation) from a graph</h3>
+      <div class="example">
+        <div class="example-label">Graph passes through (2,3), vertex at (0,0)</div>
+        <div class="step">Use f(x) = ax² → sub in (2,3): 3 = a(2)² = 4a</div>
+        <div class="step">a = 3/4</div>
+        <div class="answer">f(x) = ¾x²</div>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 3 — Real World: Rock dropped in well</h3>
+      <div class="example">
+        <div class="example-label">Graph shows height in feet of rock dropped in well as function of time</div>
+        <div class="step">Vertex (0,0) = rock hasn't dropped yet; at ground level</div>
+        <div class="step">y-intercept = ground level</div>
+        <div class="step">End point (2, -64) = in 2 seconds rock fell 64 feet</div>
+        <div class="step">h(t) = at² → sub (2,-64): -64 = a(4) → a = -16</div>
+        <div class="answer">Equation: h(t) = -16t²</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== MODULE 6.3 DAY 1 ==================== -->
+  <div class="unit" id="mod63day1">
+    <div class="unit-label">Module 6.3 — Day 1</div>
+    <h2>🔍 Identifying Quadratics — Vertex & Standard Form</h2>
+
+    <div class="concept green-box">
+      <h3>📌 How to Identify a Quadratic</h3>
+      <p>A quadratic has <strong>degree of 2</strong> — the highest power of the variable is 2. All other variables have a degree of 1.</p>
+      <div class="formula green-formula">Vertex form: f(x) = a(x + h)² + k</div>
+      <div class="formula">Standard form: f(x) = ax² + bx + c</div>
+      <div class="tip"><strong>Find vertex in standard form:</strong> (-b/2a , f(-b/2a)) → h = -b/2a, k = f(h)</div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Determine if quadratic. If so, give AOS and vertex coordinates.</h3>
+
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) y + 3x² = -4 → YES, quadratic</div>
+          <div class="step">y = 3x² - 4 → standard form</div>
+          <div class="step">Vertex: (0, -4) | AOS: x = 0</div>
+          <div class="answer">Quadratic ✓ | Vertex (0,-4) | AOS x=0</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) y = -3x + 15 → NOT quadratic</div>
+          <div class="step">Highest degree = 1, not 2</div>
+          <div class="answer">NOT quadratic ✗</div>
+        </div>
+      </div>
+
+      <div class="example">
+        <div class="example-label">c) y + 5x² - 3x = -2 → YES, quadratic</div>
+        <div class="step">Standard form: y = -5x² + 3x - 2 → a=-5, b=3, c=-2</div>
+        <div class="step">h = -b/2a = -3/2(-5) = -3/-10 = 3/10</div>
+        <div class="step">k = f(3/10) = -5(3/10)² + 3(3/10) - 2 = -5(9/100) + 9/10 - 2</div>
+        <div class="step">= -45/100 + 90/100 - 200/100 = -155/100 = -31/20</div>
+        <div class="step">Vertex form: x = 3/10 = 3/10... In exact form: Vertex (3/10, -31/20)</div>
+        <div class="answer">Quadratic ✓ | AOS: x = 3/10 | Vertex: (3/10, -31/20)</div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>🏠 Ex 3 — Real World: Designer Border (Area Problem)</h3>
+      <div class="example">
+        <div class="example-label">A designer adds a border of uniform width to a square rug. Original rug side length = (x-5) ft. Border side = (x+5) ft. Find area of border only.</div>
+        <div class="step">Whole area = (x+5)² = x² + 10x + 25</div>
+        <div class="step">Rug area = (x-5)² = x² - 10x + 25</div>
+        <div class="step">Border area = whole - rug = (x²+10x+25) - (x²-10x+25)</div>
+        <div class="step">= x²+10x+25 - x²+10x-25 = 20x</div>
+        <div class="answer">Border area = 20x ft²</div>
       </div>
     </div>
   </div>
