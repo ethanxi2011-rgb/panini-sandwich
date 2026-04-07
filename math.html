@@ -221,6 +221,11 @@
   <a href="#simplifyroots">📍 Simplifying Radicals</a>
   <a href="#discdetail">📍 The Discriminant</a>
   <a href="#imagsolve">📍 Imaginary Solutions</a>
+  <a href="#conjugates">📍 Conjugates</a>
+  <a href="#specialfactors">📍 Special Factoring Patterns</a>
+  <a href="#factoringvars">📍 Factoring with Variables & Grouping</a>
+  <a href="#factorsolve">📍 Factoring to Solve</a>
+  <a href="#parabolas">📍 Parabolas (Focus & Directrix)</a>
   <a href="#quickref">⚡ Quick Reference</a>
 </div>
 
@@ -980,6 +985,358 @@
     </div>
   </div>
 
+  <!-- ==================== CONJUGATES ==================== -->
+  <div class="unit" id="conjugates">
+    <div class="unit-label">Rationalizing with Conjugates</div>
+    <h2>🔄 Conjugates</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 What is a Conjugate?</h3>
+      <p>Two binomials that are <strong>identical except for the sign</strong> between terms.</p>
+      <div class="formula purple-formula">(a + b) and (a - b) are conjugates</div>
+      <div class="example">
+        <div class="example-label">Examples of conjugates:</div>
+        <div class="step">(-3 - √2) and (-3 + √2)</div>
+        <div class="step">(-√3 + 1) and (√3 + 1)</div>
+      </div>
+      <div class="tip"><strong>Key fact:</strong> (a+b)(a-b) = a² - b² — the middle terms cancel!</div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 3 — Simplify (no square root in denominator)</h3>
+      <div class="example">
+        <div class="example-label">a) -√3 / (√5 - 3)</div>
+        <div class="step">Multiply by conjugate (√5 + 3)/(√5 + 3)</div>
+        <div class="step">= (-√3)(√5+3) / (5 - 9) = (-√15 - 3√3) / (-4)</div>
+        <div class="answer">= (√15 + 3√3) / 4</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) 3 / (-1 + 4√5)</div>
+        <div class="step">Multiply by conjugate (-1 - 4√5)/(-1 - 4√5)</div>
+        <div class="step">= 3(-1-4√5) / (1 - 80) = (-3 - 12√5) / (-79)</div>
+        <div class="answer">= (3 + 12√5) / 79</div>
+      </div>
+      <div class="example">
+        <div class="example-label">c) 2 / (3 + 4√3)</div>
+        <div class="step">Multiply by (3 - 4√3)/(3 - 4√3)</div>
+        <div class="step">= 2(3 - 4√3) / (9 - 48) = (6 - 8√3) / (-39)</div>
+        <div class="answer">= (-6 + 8√3) / 39</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SPECIAL FACTORS ==================== -->
+  <div class="unit" id="specialfactors">
+    <div class="unit-label">Using Special Factors to Solve</div>
+    <h2>⭐ Special Factoring Patterns</h2>
+
+    <div class="two-col">
+      <div class="concept green-box">
+        <h3>📌 Perfect Square Trinomial</h3>
+        <div class="formula green-formula">a² + 2ab + b² = (a + b)²</div>
+        <div class="formula green-formula">a² - 2ab + b² = (a - b)²</div>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem">Clue: √(first term) = a, √(last term) = b, check middle = 2ab</p>
+      </div>
+      <div class="concept red-box">
+        <h3>📌 Difference of Squares</h3>
+        <div class="formula">a² - b² = (a + b)(a - b)</div>
+        <p style="font-size:0.85rem; color:var(--muted); margin-top:0.5rem">⚠️ NOT addition! Only works with subtraction. Sum of squares CANNOT be factored.</p>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Factor (Perfect Square Trinomials)</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) 4x³ - 24x² + 36x</div>
+          <div class="step">GCF = 4x → 4x(x² - 6x + 9)</div>
+          <div class="answer">= 4x(x - 3)²</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) 2y³ + 12y² + 18y</div>
+          <div class="step">GCF = 2y → 2y(y² + 6y + 9)</div>
+          <div class="answer">= 2y(y + 3)²</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) 100z² - 20z + 1</div>
+          <div class="step">a = 10z, b = 1 → check: 2(10z)(1) = 20z ✓</div>
+          <div class="answer">= (10z - 1)²</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 2 — Factor (Difference of Squares)</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) 49q² - 4p²</div>
+          <div class="step">a = 7q, b = 2p</div>
+          <div class="answer">= (7q + 2p)(7q - 2p)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) 81y⁴ - 9y²</div>
+          <div class="step">GCF = 9y² → 9y²(9y² - 1)</div>
+          <div class="step">9y²(3y-1)(3y+1)</div>
+          <div class="answer">= 9y²(3y - 1)(3y + 1)</div>
+        </div>
+      </div>
+      <div class="tip"><strong>Common Difference of Squares to know:</strong> x²-9=(x+3)(x-3) | 4x²-9=(2x+3)(2x-3) | 9x²-1=(3x+1)(3x-1)</div>
+    </div>
+  </div>
+
+  <!-- ==================== FACTORING WITH VARIABLES & GROUPING ==================== -->
+  <div class="unit" id="factoringvars">
+    <div class="unit-label">Factoring with Variables & Grouping</div>
+    <h2>📦 Factoring with Variables & By Grouping</h2>
+
+    <div class="concept">
+      <h3>🔑 Asterisk Method (for ax² + bx + c when a ≠ 1)</h3>
+      <ol>
+        <li>Multiply a × c (put in top of X)</li>
+        <li>Put b in bottom of X</li>
+        <li>Find two numbers that multiply to top AND add to bottom</li>
+        <li>Replace bx with those two terms, then factor by grouping</li>
+      </ol>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 1 — Factor with Variables</h3>
+      <div class="example">
+        <div class="example-label">a) 9m² - 71mn - 40n²</div>
+        <div class="step">a×c = 9×(-40) = -360 | b = -71</div>
+        <div class="step">Find: ? × ? = -360, ? + ? = -71 → (-80)(+9/n correction) → -80 and 9n</div>
+        <div class="step">Guess & check: (9m + ?n)(m - ?n)</div>
+        <div class="answer">= (9m + 4n)(m - 10n)</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) -5x² - 6bxy + 24y²n (factor by grouping)</div>
+        <div class="step">Factor out -n: -n(5x² + 6bxy - 24y²n...)</div>
+        <div class="answer">= -n(8x - 3y)(x + 8y)</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 2 — Factor by Grouping</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) 42a³ + 36a² - 49a - 42</div>
+          <div class="step">Group: (42a³+36a²) + (-49a-42)</div>
+          <div class="step">= 6a²(7a+6) - 7(7a+6)</div>
+          <div class="answer">= (6a²- 7)(7a + 6)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) 20n³ + 4n² + 5n + 1</div>
+          <div class="step">= 4n²(5n+1) + 1(5n+1)</div>
+          <div class="answer">= (4n² + 1)(5n + 1)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) 9x³ - 9x² + 24x - 24</div>
+          <div class="step">= 9x²(x-1) + 24(x-1)</div>
+          <div class="answer">= 3(3x² + 8)(x - 1)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== FACTORING TO SOLVE ==================== -->
+  <div class="unit" id="factorsolve">
+    <div class="unit-label">Factoring to Solve</div>
+    <h2>🎯 Factoring to Solve (Zero Product Property)</h2>
+
+    <div class="concept">
+      <h3>📌 What is it?</h3>
+      <p>A method to find <strong>zeros (x-intercepts, solutions, roots)</strong> of a quadratic equation.</p>
+      <div class="formula">If (x + a)(x + b) = 0, then x = -a OR x = -b</div>
+      <div class="tip"><strong>Zero Product Property:</strong> If A × B = 0, then A = 0 OR B = 0</div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📋 Steps — Factoring to Solve</h3>
+      <ol>
+        <li>Place equation in <strong>standard form</strong> (y = ax² + bx + c, set = 0)</li>
+        <li>Find the <strong>GCF</strong> (including when a = -1)</li>
+        <li>Reverse FOIL using "Guess and Check" or "Asterisk" method</li>
+        <li>Use the <strong>Zero Product Property</strong> to solve</li>
+      </ol>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Factor to Solve</h3>
+      <div class="example">
+        <div class="example-label">a) -4x² = 3bx + 72 → standard form: 0 = -4x² + 3bx + 72</div>
+        <div class="step">Find GCF = 4: 0 = 4(x² + 9x + 18)</div>
+        <div class="step">Factor: 0 = 4(x + 6)(x + 3)</div>
+        <div class="step">x + 6 = 0 → x = -6 &nbsp;&nbsp; OR &nbsp;&nbsp; x + 3 = 0 → x = -3</div>
+        <div class="answer">x = -6 or x = -3</div>
+      </div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex — Asterisk Method Examples</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">b) 12x² - 17x = 0 → GCF first!</div>
+          <div class="step">x(12x - 17) = 0</div>
+          <div class="step">Wait — factor fully: (3x-2)(4x-3) = 0... use asterisk</div>
+          <div class="step">a×c=72 | b=-17 → -8 and -9</div>
+          <div class="step">(3x-2)(4x-3) → x = 2/3 or x = 3/4</div>
+          <div class="answer">x = 2/3 or x = 3/4</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) 27x² + 42x + 8 = 0</div>
+          <div class="step">a×c = 216 | b = 42 → 6 and 36</div>
+          <div class="step">(3x + 4)(9x + 2) = 0</div>
+          <div class="answer">x = -4/3 or x = -2/9</div>
+        </div>
+        <div class="example">
+          <div class="example-label">D) 4y² - 9 = 0 (Difference of Squares!)</div>
+          <div class="step">(2y + 3)(2y - 3) = 0</div>
+          <div class="answer">y = -3/2 or y = 3/2</div>
+        </div>
+        <div class="example">
+          <div class="example-label">e) 4x² + 9 = 0 (Sum of squares)</div>
+          <div class="step">Can't be factored! (sum not difference)</div>
+          <div class="answer">No real solution</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>✏️ Factoring and Solving — More Examples</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) 6x² - 21x - 45</div>
+          <div class="step">GCF = 3: 3(2x² - 7x - 15)</div>
+          <div class="step">Asterisk: a×c=-30 | b=-7 → -10 and 3</div>
+          <div class="answer">= 3(x - 5)(2x + 3)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) 20x² - 40x - 25</div>
+          <div class="step">GCF = 5: 5(4x² - 8x - 5)</div>
+          <div class="step">Asterisk: -20 and 2 → 5(2x-5)(2x+1)</div>
+          <div class="answer">= 5(2x - 5)(2x + 1)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) -5x² + 8x + 4 (A must be positive!)</div>
+          <div class="step">Factor out -1: -1(5x² - 8x - 4)</div>
+          <div class="step">= -1(5x + 2)(x - 2)</div>
+          <div class="answer">= -(5x + 2)(x - 2)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">d) 3(x²-1) = -3x² + 2x + 5 → 6x²-2x-8=0</div>
+          <div class="step">2(3x²-x-4) = 0 → 2(3x-4)(x+1) = 0</div>
+          <div class="answer">x = 4/3 or x = -1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">e) 2x² + 7x - 2 = 4x² + 4 → 0 = 2x² - 7x + 6</div>
+          <div class="step">Asterisk: a×c=12 | b=-7 → -3 and -4</div>
+          <div class="step">(2x - 3)(x - 2) = 0</div>
+          <div class="answer">x = 3/2 or x = 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PARABOLAS ==================== -->
+  <div class="unit" id="parabolas">
+    <div class="unit-label">Module 12.2 — Day 2</div>
+    <h2>📈 Parabolas — Vertex, Focus & Directrix</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 Key Terms</h3>
+      <table>
+        <tr><th>Term</th><th>Meaning</th></tr>
+        <tr><td>Vertex (h, k)</td><td>The tip of the parabola</td></tr>
+        <tr><td>p-value</td><td>Distance from vertex to focus (and vertex to directrix)</td></tr>
+        <tr><td>Focus</td><td>Point inside the parabola, p units from vertex</td></tr>
+        <tr><td>Directrix</td><td>Line outside parabola, p units from vertex (opposite side from focus)</td></tr>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="concept green-box">
+        <h3>Vertical Parabola (opens up/down)</h3>
+        <div class="formula green-formula">x = (1/4p)(y - k)² + h &nbsp; [horizontal]</div>
+        <div class="formula green-formula">y = (1/4p)(x - h)² + k &nbsp; [vertical]</div>
+        <ul>
+          <li>p &gt; 0 → opens up/right</li>
+          <li>p &lt; 0 → opens down/left</li>
+          <li>Focus is p units from vertex</li>
+          <li>Directrix is opposite side</li>
+        </ul>
+      </div>
+      <div class="concept gold-box">
+        <h3>Finding p, Focus, Directrix</h3>
+        <ul>
+          <li>Get into form: y = (1/4p)(x-h)² + k</li>
+          <li>coefficient = 1/4p → solve for p</li>
+          <li>Vertical: Focus = (h, k+p) | Directrix: y = k-p</li>
+          <li>Horizontal: Focus = (h+p, k) | Directrix: x = h-p</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="concept">
+      <h3>📋 Module 12.2 Day 2 — Steps: Standard → Vertex Form</h3>
+      <ol>
+        <li>Identify which variable is being squared</li>
+        <li>Move squared variable and like terms to one side. Make squared variable coefficient <strong>positive</strong></li>
+        <li>Place blanks on both sides — make sure blanks added to each side</li>
+        <li>Find "b" (coefficient of like term with squared variable), cut in half and square it. Place in both blanks</li>
+        <li>Factor — turn PST into a squared binomial</li>
+        <li>Solve for the "non-squared" variable</li>
+      </ol>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Rewrite in Vertex Form, Find p, Focus, Directrix</h3>
+      <div class="example">
+        <div class="example-label">a) y² - 12x - 4y + 64 = 0</div>
+        <div class="step">y² - 4y = 12x - 64</div>
+        <div class="step">y² - 4y + 4 = 12x - 64 + 4 (add (4/2)²=4)</div>
+        <div class="step">(y-2)² = 12x - 60 → (y-2)² = 12(x-5)</div>
+        <div class="step">1/4p = 1/12 → 4p = 12 → p = 3</div>
+        <div class="step">Vertex: (5, 2) | Focus: (8, 2) | Directrix: x = 2</div>
+        <div class="answer">Vertex: (5,2) | p=3 | Focus: (8,2) | Directrix: x=2</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) x² + 8x + 16y - 48 = 0</div>
+        <div class="step">x² + 8x = -16y + 48</div>
+        <div class="step">x² + 8x + 16 = -16y + 48 + 16 (add (8/2)²=16)</div>
+        <div class="step">(x+4)² = -16y + 64 = -16(y-4)</div>
+        <div class="step">1/4p = -1/16 → p = -4</div>
+        <div class="step">Vertex: (-4, 4) | Focus: (-4, 0) | Directrix: y = 8</div>
+        <div class="answer">Vertex: (-4,4) | p=-4 | Focus: (-4,0) | Directrix: y=8</div>
+      </div>
+      <div class="example">
+        <div class="example-label">c) y = x² - 2x + 6 → complete square</div>
+        <div class="step">y - 5 = (x-1)² → y = (x-1)² + 5</div>
+        <div class="step">1/4p = 1 → p = 1/4</div>
+        <div class="step">Vertex: (1, 5) | Focus: (1, 5.25) | Directrix: y = 4.75</div>
+        <div class="answer">Vertex: (1,5) | p=¼ | Focus: (1, 21/4) | Directrix: y=19/4</div>
+      </div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>🚀 Projectile Problems — More Examples</h3>
+      <div class="example">
+        <div class="example-label">Ex 2: Child on river bank 10ft above river throws rock TOWARD river at 12 ft/sec. When does it hit?</div>
+        <div class="step">v = -12 (downward!), s = 10</div>
+        <div class="step">h = -16t² - 12t + 10 = 0</div>
+        <div class="step">-2(8t² + 6t - 5) = 0 → -2(4t+5)(2t-1) = 0</div>
+        <div class="step">t = -5/4 (reject) OR t = 1/2</div>
+        <div class="answer">t = ½ second</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Ex 3: Rock thrown off 72ft building roof with 24 ft/sec upward velocity. How long to hit ground?</div>
+        <div class="step">h = -16t² + 24t + 72 = 0</div>
+        <div class="step">-8(2t² - 3t - 9) = 0 → -8(2t+3)(t-3) = 0</div>
+        <div class="step">t = -3/2 (reject) OR t = 3</div>
+        <div class="answer">t = 3 seconds</div>
+      </div>
+    </div>
+  </div>
+
   <!-- QUICK REFERENCE -->
   <div class="unit" id="quickref">
     <div class="unit-label">Cheat Sheet</div>
@@ -996,6 +1353,12 @@
       <div class="formula">Discriminant: b²-4ac → (+)=2 real, (0)=1 real, (-)=2 imaginary</div>
       <div class="formula green-formula">Rationalize: multiply top & bottom by the radical in denominator</div>
       <div class="formula">Trapezoid Area: A = ½(b₁+b₂)h</div>
+      <div class="formula purple-formula">Perfect Square: a²±2ab+b² = (a±b)²</div>
+      <div class="formula">Difference of Squares: a²-b² = (a+b)(a-b)</div>
+      <div class="formula green-formula">Zero Product Property: if AB=0 then A=0 or B=0</div>
+      <div class="formula">Parabola: x=(1/4p)(y-k)²+h or y=(1/4p)(x-h)²+k</div>
+      <div class="formula purple-formula">Focus (vertical): (h, k+p) | Directrix: y = k-p</div>
+      <div class="formula">Focus (horizontal): (h+p, k) | Directrix: x = h-p</div>
     </div>
   </div>
 
