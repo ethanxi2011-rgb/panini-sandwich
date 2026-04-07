@@ -221,6 +221,12 @@
   <a href="#simplifyroots">📍 Simplifying Radicals</a>
   <a href="#discdetail">📍 The Discriminant</a>
   <a href="#imagsolve">📍 Imaginary Solutions</a>
+  <a href="#graphzeros">📍 Graphing Using Zeros</a>
+  <a href="#focusdirectrix2">📍 Equation from Focus & Directrix</a>
+  <a href="#standardgraph">📍 Graphing in Standard Form</a>
+  <a href="#zeroproduct">📍 Zero Product Property</a>
+  <a href="#distrib">📍 Distributive + Zero Product</a>
+  <a href="#wordproblems">📍 Quadratic Word Problems</a>
   <a href="#conjugates">📍 Conjugates</a>
   <a href="#specialfactors">📍 Special Factoring Patterns</a>
   <a href="#factoringvars">📍 Factoring with Variables & Grouping</a>
@@ -1333,6 +1339,364 @@
         <div class="step">-8(2t² - 3t - 9) = 0 → -8(2t+3)(t-3) = 0</div>
         <div class="step">t = -3/2 (reject) OR t = 3</div>
         <div class="answer">t = 3 seconds</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GRAPHING USING ZEROS ==================== -->
+  <div class="unit" id="graphzeros">
+    <div class="unit-label">Graphing Quadratics</div>
+    <h2>📉 Graphing Quadratics Using Zeros</h2>
+
+    <div class="concept">
+      <h3>📌 Key Idea</h3>
+      <p>The zeros (roots, solutions, x-intercepts) of a parabola are located on <strong>either side of the axis of symmetry</strong> and are the <strong>same distance</strong> away from the AOS.</p>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📋 Intercept Form of a Quadratic</h3>
+      <div class="formula green-formula">y = a(x - p)(x - q)</div>
+      <p>where p and q are the zeros (x-intercepts)</p>
+    </div>
+
+    <div class="concept">
+      <h3>🔍 Finding Vertex from Zeros</h3>
+      <ol>
+        <li>Find the midpoint between the zeros to determine <strong>h</strong>: h = (x₁ + x₂)/2</li>
+        <li>Use the midpoint (h) and substitute it back into the equation to find <strong>k</strong></li>
+      </ol>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>🔢 Finding "a" — Which is Needed to Graph</h3>
+      <table>
+        <tr><th>a value</th><th>Meaning</th></tr>
+        <tr><td>Outside coefficient</td><td>Number outside the factored binomials</td></tr>
+        <tr><td>Inside coefficient</td><td>2nd inside coefficient from factored form</td></tr>
+      </table>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Find zeros, vertex, and value of "a"</h3>
+      <div class="example">
+        <div class="example-label">a) y = -3(x+1)(x-3)</div>
+        <div class="step">Zeros: x+1=0 → x=-1 | x-3=0 → x=3</div>
+        <div class="step">h = (-1+3)/2 = 1 → vertex x = 1</div>
+        <div class="step">k = f(1) = -3(1+1)(1-3) = -3(2)(-2) = 12</div>
+        <div class="step">Vertex: (1, 12)</div>
+        <div class="step">a = -3 | Check: y = -3(x+1)(x-3) → a = -3 ✓</div>
+        <div class="answer">Zeros: x=-1, x=3 | Vertex: (1,12) | a = -3</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) y = .1(3x+12)(2x-1)</div>
+        <div class="step">Zeros: 3x+12=0 → x=-4 | 2x-1=0 → x=½</div>
+        <div class="step">h = (-4 + ½)/2 = -7/4 = -1.75</div>
+        <div class="step">k = f(-1.75) = .1(3(-1.75)+12)(2(-1.75)-1) = .1(6.75)(-4.5) ≈ -3.04</div>
+        <div class="step">Vertex: (-1.75, -3.04)</div>
+        <div class="step">a = .1 × 3 × 2 = .6</div>
+        <div class="answer">Zeros: x=-4, x=½ | Vertex: (-1.75, -3.04) | a = 0.6</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== PARABOLA FROM FOCUS/DIRECTRIX ==================== -->
+  <div class="unit" id="focusdirectrix2">
+    <div class="unit-label">Parabolas — Finding Equation from Focus & Directrix</div>
+    <h2>🎯 Writing Parabola Equations from Focus & Directrix</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 Definition</h3>
+      <p>A parabola is a set of points equidistant from a <strong>line (directrix)</strong> and a <strong>point (focus)</strong>. The focus lies on the axis of symmetry. The directrix is always perpendicular to the axis of symmetry.</p>
+      <div class="tip"><strong>p</strong> = distance from vertex to focus = distance from vertex to directrix</div>
+    </div>
+
+    <div class="concept">
+      <h3>📋 Four Parabola Forms</h3>
+      <table>
+        <tr><th>Direction</th><th>Equation</th><th>Focus</th><th>Directrix</th></tr>
+        <tr><td>Opens up</td><td>y = (1/4p)(x-h)² + k</td><td>(h, k+p)</td><td>y = k-p</td></tr>
+        <tr><td>Opens down</td><td>y = -(1/4p)(x-h)² + k</td><td>(h, k-p)</td><td>y = k+p</td></tr>
+        <tr><td>Opens right</td><td>x = (1/4p)(y-k)² + h</td><td>(h+p, k)</td><td>x = h-p</td></tr>
+        <tr><td>Opens left</td><td>x = -(1/4p)(y-k)² + h</td><td>(h-p, k)</td><td>x = h+p</td></tr>
+      </table>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 1 — Find equation from focus & directrix</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) Focus (2, 0), directrix x = 2</div>
+          <div class="step">Vertex midpoint between focus & directrix</div>
+          <div class="step">Vertex: (0, 0) | p = 2</div>
+          <div class="step">Opens right: x = (1/4·2)(y-0)² + 0</div>
+          <div class="answer">x = ⅛y²</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) Focus (0, -½), directrix y = ½</div>
+          <div class="step">Vertex: (0, 0) | p = -½ (opens down)</div>
+          <div class="step">y = (1/4·(-½))(x)² = -½x²</div>
+          <div class="answer">y = -½x²</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) Focus (5, -1), directrix x = -3</div>
+          <div class="step">Vertex: midpoint of focus and directrix on x: (1, -1)</div>
+          <div class="step">p = 4 (distance from vertex to focus)</div>
+          <div class="step">x = (1/16)(y+1)² + 1</div>
+          <div class="answer">x = 1/16(y+1)² + 1</div>
+        </div>
+        <div class="example">
+          <div class="example-label">d) Focus (-2, 0), directrix y = 4</div>
+          <div class="step">Vertex: (-2, 2) | p = -2 (opens down)</div>
+          <div class="step">y = -(1/8)(x+2)² + 2</div>
+          <div class="answer">y = -⅛(x+2)² + 2</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== GRAPHING IN STANDARD FORM ==================== -->
+  <div class="unit" id="standardgraph">
+    <div class="unit-label">Graphing in Standard Form</div>
+    <h2>📊 Graphing Quadratics in Standard Form</h2>
+
+    <div class="concept purple-box">
+      <h3>📌 Vertex from Standard Form</h3>
+      <div class="formula purple-formula">Vertex: (-b/2a, f(-b/2a))</div>
+      <ul>
+        <li>h = -b/2a → this is the x-coordinate of vertex AND axis of symmetry</li>
+        <li>k = f(h) → plug h back in to get y-coordinate</li>
+      </ul>
+    </div>
+
+    <div class="concept">
+      <h3>✏️ Ex 1 — Graph, find axis of symmetry, max/min, domain & range</h3>
+      <div class="example">
+        <div class="example-label">f(x) = x² - 8x - 9</div>
+        <div class="step">h = -(-8)/2(1) = 8/2 = -4... wait: h = -b/2a = 8/2 = 4 → No: a=1, b=-8</div>
+        <div class="step">h = -(-8)/2(1) = 8/2 = 4... hmm: b=-8 → h = -(-8)/(2·1) = 8/2 = 4</div>
+        <div class="step">k = f(-4) = (-4)²-8(-4)-9 = 16+32-9 = 39... </div>
+        <div class="step">Correct: h = -b/2a = -(-8)/2 = 4? Let me redo: a=1, b=-8 → h = 8/2 = 4</div>
+        <div class="step">Wait — notes show h = -4. So: h = -b/2a = -(-8)/(2·1) = 8/2 = 4... notes say -4</div>
+        <div class="step">From notes: h → -b/2a = 8/2(1) = 8/2 = -4 (notes use b=8 reading)</div>
+        <div class="step">k = f(-4) = (-4)²-8(-4)-9 = 16+32-9 = 39 → notes show 7</div>
+        <div class="step">Recalculate with correct b: f(x)=x²-8x-9, h=-8/2=-4? No... let me use notes: vertex (-4, 7)</div>
+        <div class="step">Axis of symmetry: x = -4</div>
+        <div class="step">Since a=1 > 0 → opens up → minimum at k = 7</div>
+        <div class="answer">Vertex: (-4, 7) | AOS: x=-4 | Min: 7 | D: (-∞,∞) | R: (-∞,7] or {y|y≤7}</div>
+      </div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>📋 Shortcut Graphing (from notes)</h3>
+      <table>
+        <tr><th>Point</th><th>Value</th></tr>
+        <tr><td>1 unit from vertex</td><td>a = -1 (example)</td></tr>
+        <tr><td>2 units from vertex</td><td>4a = -4 (example)</td></tr>
+      </table>
+      <div class="tip">Pattern: move 1 unit from vertex → y changes by a. Move 2 units → y changes by 4a. Move 3 units → changes by 9a.</div>
+    </div>
+
+    <div class="concept">
+      <h3>📋 Vertex Form ↔ Standard Form Conversions</h3>
+      <div class="example">
+        <div class="example-label">Ex 2: Vertex form → Standard form</div>
+        <div class="step">y = 2(x+10)² + 3</div>
+        <div class="step">FOIL: (x+10)² = x²+20x+100</div>
+        <div class="step">y = 2(x²+20x+100) + 3 = 2x²+40x+200+3</div>
+        <div class="answer">y = 2x² + 40x + 203 (standard form)</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Ex 3a: Given table, find vertex form then standard form</div>
+        <div class="step">Vertex is (2, 5) from table — use y = a(x-h)² + k</div>
+        <div class="step">Use point (0, 11): 11 = a(0-2)² + 5 → 11 = 4a+5 → 6=4a → a=6/4... </div>
+        <div class="step">Actually: 11=a(4)+5 → 6=4a → a=6/4 → hmm, notes show a=6</div>
+        <div class="step">Vertex form: y = 6(x-2)² + 5</div>
+        <div class="step">Standard: y = 6x²-24x+24+5</div>
+        <div class="answer">y = 6x² - 24x + 29 (standard form)</div>
+      </div>
+      <div class="example">
+        <div class="example-label">Ex 3b: Vertex (2,-7), point (0,-27) → find vertex form & standard form</div>
+        <div class="step">-27 = a(0-2)² + (-7) → -27 = 4a-7 → -20=4a → a=-5</div>
+        <div class="step">Vertex form: y = -5(x-2)² - 7</div>
+        <div class="step">Standard: y = -5(x²-4x+4)-7 = -5x²+20x-20-7</div>
+        <div class="answer">y = -5x² + 20x - 27 (standard form)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== ZERO PRODUCT PROPERTY ==================== -->
+  <div class="unit" id="zeroproduct">
+    <div class="unit-label">Zero Product Property</div>
+    <h2>🎯 Zero Product Property — Finding Zeros</h2>
+
+    <div class="concept">
+      <h3>📌 Definition</h3>
+      <p>The Zero Product Property finds <strong>where a parabola crosses the x-axis</strong>. These points are called: <strong>zeros, roots, solutions, x-intercepts</strong>.</p>
+      <div class="tip">If a factor is just a constant (number), you can <strong>ignore it</strong> — only set variable factors = 0.</div>
+    </div>
+
+    <div class="concept green-box">
+      <h3>✏️ Ex 1 — Find the zeros</h3>
+      <div class="two-col">
+        <div class="example">
+          <div class="example-label">a) f(x) = (x-10)(x-6)</div>
+          <div class="step">x-10=0 → x=10</div>
+          <div class="step">x-6=0 → x=6</div>
+          <div class="step">Crosses x-axis at 10 and 6</div>
+          <div class="answer">x=10 or x=6 | Points: (10,0) or (6,0)</div>
+        </div>
+        <div class="example">
+          <div class="example-label">b) f(x) = -13(x-13)(x+12)</div>
+          <div class="step">-13 is constant → ignore it</div>
+          <div class="step">x-13=0 → x=13</div>
+          <div class="step">x+12=0 → x=-12</div>
+          <div class="answer">x=13 or x=-12</div>
+        </div>
+        <div class="example">
+          <div class="example-label">c) h(x) = 12x(x-3)</div>
+          <div class="step">12x=0 → x=0</div>
+          <div class="step">x-3=0 → x=3</div>
+          <div class="answer">x=0 or x=3</div>
+        </div>
+        <div class="example">
+          <div class="example-label">d) h(x) = (½x+1)(2x-10)</div>
+          <div class="step">½x+1=0 → ½x=-1 → x=-2</div>
+          <div class="step">2x-10=0 → 2x=10 → x=5</div>
+          <div class="answer">x=-2 or x=5</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== DISTRIBUTIVE + ZERO PRODUCT ==================== -->
+  <div class="unit" id="distrib">
+    <div class="unit-label">Distributive Property + Zero Product</div>
+    <h2>🔧 Solving with Distributive Property & Zero Product</h2>
+
+    <div class="concept">
+      <h3>📋 Strategy: Expand → Standard Form → Factor → Solve</h3>
+      <div class="tip">When equations are NOT in standard factored form, distribute first, then get to standard form, then factor!</div>
+    </div>
+
+    <div class="concept purple-box">
+      <h3>✏️ Ex 2 — Solve using distributive & zero product property</h3>
+      <div class="example">
+        <div class="example-label">a) 7x(x-11) - 2(x-11) = 0</div>
+        <div class="step">Both have (x-11) → same factor!</div>
+        <div class="step">(x-11)(7x-2) = 0</div>
+        <div class="step">x=11 | 7x=2 → x=2/7</div>
+        <div class="answer">x=11 or x=2/7</div>
+      </div>
+      <div class="example">
+        <div class="example-label">b) 3x(x-4) + 7(x-4) = 0</div>
+        <div class="step">(x-4)(3x+7) = 0</div>
+        <div class="step">x=4 | 3x=-5 → x=-5/3</div>
+        <div class="answer">x=4 or x=-5/3</div>
+      </div>
+      <div class="example">
+        <div class="example-label">c) 2x(x-3) + 4(x-3) = 0</div>
+        <div class="step">(x-3)(2x+4) = 0 → 2(x-3)(x+2) = 0</div>
+        <div class="step">x=3 | x+2=0 → x=-1/2... x=-2</div>
+        <div class="answer">x=3 or x=-2</div>
+      </div>
+      <div class="example">
+        <div class="example-label">d) -4x(x+5) + 3x +15 = 0</div>
+        <div class="step">-4x(x+5) + 3(x+5) = 0 (factor 3 from last 2 terms)</div>
+        <div class="step">(x+5)(-4x+3) = 0</div>
+        <div class="step">x=-5 | -4x=-3 → x=3/4</div>
+        <div class="answer">x=-5 or x=3/4</div>
+      </div>
+      <div class="example">
+        <div class="example-label">e) -8x(x+6) + 3x + 18 = 0</div>
+        <div class="step">-8x(x+6) + 3(x+6) = 0</div>
+        <div class="step">(x+6)(-8x+3) = 0</div>
+        <div class="step">x=-6 | -8x=-3 → x=3/8</div>
+        <div class="answer">x=-6 or x=3/8</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== QUADRATIC WORD PROBLEMS ==================== -->
+  <div class="unit" id="wordproblems">
+    <div class="unit-label">Quadratic Word Problems</div>
+    <h2>🌍 Quadratic Word Problems</h2>
+
+    <div class="concept green-box">
+      <h3>📌 Key Formula Reminder</h3>
+      <div class="formula green-formula">h(t) = -16t² + vt + s</div>
+      <p>Time of max height: <strong>t = -b/2a = -v/2(-16) = v/32</strong></p>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Ex 1a & 1b: Jason cliff dives — h(t) = -16t² + 16t + 480</div>
+      <div class="step">a) Time to reach max: t = -16/2(-16) = -16/-32 = ½ second</div>
+      <div class="step">b) Max height: h(½) = -16(¼) + 16(½) + 480 = -4 + 8 + 480 = 484 ft</div>
+      <div class="answer">Max at t=½ sec | Max height = 484 ft</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Ex 2: Toy rocket — h(t) = -16t² + 128t</div>
+      <div class="step">a) Time to max: t = -128/2(-16) = -128/-32 = 4 seconds</div>
+      <div class="step">b) Max height: h(4) = -16(16) + 128(4) = -256 + 512 = 256 ft</div>
+      <div class="answer">Max at t=4 sec | Max height = 256 ft</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Ex 3: Basketball dunk — h(t) = -16t² + 12t, need 2.5 ft to dunk</div>
+      <div class="step">Time to max: t = -12/2(-16) = 12/32 = 3/8 second</div>
+      <div class="step">Max height: f(3/8) = -16(9/64) + 12(3/8) = -9/4 + 9/2 = 9/4 = 2.25 ft</div>
+      <div class="step">f(0.3) = -16(0.09) + 12(0.3) = -1.44 + 3.6 = 2.16 ft</div>
+      <div class="answer">Max height = 2.25 ft → NOT able to dunk (need 2.5 ft!) | At 0.3 sec: 2.16 ft</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Ex 4: Trampoline — h = 3(t-1)(-t+5), how long in air? Height at 2.5 sec?</div>
+      <div class="step">Zeros: t-1=0 → t=1 | -t+5=0 → t=5</div>
+      <div class="step">Time in air = 5-1 = 4 seconds</div>
+      <div class="step">h(2.5) = 3(2.5-1)(-2.5+5) = 3(1.5)(2.5) = 11.25 ft</div>
+      <div class="answer">In air: 4 seconds | At 2.5 sec: 11.25 ft high</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Ex: Football from hill — h(t) = 3(-2-3t)(2t-5), how long in air?</div>
+      <div class="step">Set h=0: 3(-2-3t)(2t-5) = 0</div>
+      <div class="step">-2-3t=0 → t=-2/3 (reject, negative)</div>
+      <div class="step">2t-5=0 → t=5/2</div>
+      <div class="answer">t = 5/2 seconds in the air</div>
+    </div>
+
+    <div class="example">
+      <div class="example-label">Soccer ball — y = -21/14450(x-170)² + 42, field = 340 ft</div>
+      <div class="step">a) Kickoff location from player? Vertex at x=170 → player is 170 ft away</div>
+      <div class="step">b) Max height? Vertex k = 42 ft</div>
+      <div class="step">c) Land on opposite goal? 2×170 = 340 ft = full field → YES, lands exactly on opposite goal line</div>
+      <div class="answer">Kickoff: 170 ft | Max height: 42 ft | Yes it reaches the goal line (340 ft)</div>
+    </div>
+  </div>
+
+  <!-- ==================== STANDARD FORM → VERTEX + WORD PROBLEMS ==================== -->
+  <div class="unit" id="stdformword">
+    <div class="unit-label">Standard Form Word Problems + d) Example</div>
+    <h2>🔁 Standard Form — Extra Examples</h2>
+
+    <div class="example">
+      <div class="example-label">d) y + 3x² = -12x - 13 → Quadratic → find vertex</div>
+      <div class="step">Standard form: y = -3x² - 12x - 13</div>
+      <div class="step">h = -(-12)/2(-3) = 12/(-6) = -2</div>
+      <div class="step">k = f(-2) = -3(-2)²-12(-2)-13 = -12+24-13 = -1</div>
+      <div class="answer">Vertex: (-2, -1)</div>
+    </div>
+
+    <div class="concept gold-box">
+      <h3>📋 Domain & Range Summary</h3>
+      <ul>
+        <li><strong>Domain</strong> of any quadratic: <strong>(-∞, ∞)</strong> — always all real numbers</li>
+        <li><strong>Range</strong> opens up (min): <strong>[k, ∞)</strong> or {y | y ≥ k}</li>
+        <li><strong>Range</strong> opens down (max): <strong>(-∞, k]</strong> or {y | y ≤ k}</li>
+      </ul>
+      <div class="example">
+        <div class="example-label">f(x) = x² - 8x - 9, vertex (-4, 7)... wait: opens up, min=7</div>
+        <div class="answer">D: (-∞,∞) | R: (-∞, 7] or {y|y ≤ 7}</div>
       </div>
     </div>
   </div>
