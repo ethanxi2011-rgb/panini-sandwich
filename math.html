@@ -2884,58 +2884,20 @@
       document.getElementById('quiz-question-box').style.display = 'block';
       document.getElementById('quiz-result').style.display = 'none';
 
-      if (quiz.type === 'multiple_choice' && quiz.choices) {
-        document.getElementById('quiz-choices').style.display = 'block';
-        document.getElementById('quiz-free').style.display = 'none';
-        const list = document.getElementById('quiz-choices-list');
-        list.innerHTML = '';
-        quiz.choices.forEach((choice, i) => {
-          const btn = document.createElement('button');
-          btn.textContent = choice;
-          btn.className = 'choice-btn';
-          btn.style.cssText = 'background:#f8faff; border:2px solid #dde8ff; border-radius:0.75rem; padding:0.65rem 1.25rem; font-size:0.95rem; font-weight:600; cursor:pointer; font-family:Inter,sans-serif; text-align:left; transition:all 0.2s; color:#1a2032;';
-          btn.onmouseover = () => { if (selectedChoice !== i) btn.style.borderColor = '#3b6cf7'; };
-          btn.onmouseout = () => { if (selectedChoice !== i) btn.style.borderColor = '#dde8ff'; };
-          btn.onclick = () => {
-            selectedChoice = i;
-            document.querySelectorAll('.choice-btn').forEach((b, j) => {
-              b.style.borderColor = j === i ? '#3b6cf7' : '#dde8ff';
-              b.style.background = j === i ? '#eef2ff' : '#f8faff';
-            });
-          };
-          list.appendChild(btn);
-        });
-      } else {
-        document.getElementById('quiz-choices').style.display = 'none';
-        document.getElementById('quiz-free').style.display = 'block';
-        document.getElementById('quiz-answer-input').value = '';
-        setTimeout(() => document.getElementById('quiz-answer-input').focus(), 100);
-      }
+      // Always free response
+      document.getElementById('quiz-choices').style.display = 'none';
+      document.getElementById('quiz-free').style.display = 'block';
+      document.getElementById('quiz-answer-input').value = '';
+      setTimeout(() => document.getElementById('quiz-answer-input').focus(), 100);
     }
 
     async function checkAnswer() {
       if (!currentQuestion) return;
 
-      let userAnswer = '';
-      if (currentQuestion.type === 'multiple_choice') {
-        if (selectedChoice === null) { alert('Pick an answer!'); return; }
-        userAnswer = currentQuestion.choices[selectedChoice];
-      } else {
-        userAnswer = document.getElementById('quiz-answer-input').value.trim();
-        if (!userAnswer) { alert('Type your answer!'); return; }
-      }
+      const userAnswer = document.getElementById('quiz-answer-input').value.trim();
+      if (!userAnswer) { alert('Type your answer!'); return; }
 
       document.getElementById('quiz-check-btn').disabled = true;
-
-      // For multiple choice — grade instantly, no AI needed!
-      if (currentQuestion.type === 'multiple_choice') {
-        const normalize = s => (s||'').toLowerCase().replace(/\s+/g,'').replace(/^[a-d][).]/i,'');
-        const isCorrect = normalize(userAnswer) === normalize(currentAnswer);
-        showResult(isCorrect, isCorrect ? 'Correct! 🎉' : 'Not quite!', `Correct answer: ${currentAnswer}`);
-        document.getElementById('quiz-check-btn').disabled = false;
-        return;
-      }
-
       document.getElementById('quiz-check-btn').textContent = 'Grading...';
 
       try {
