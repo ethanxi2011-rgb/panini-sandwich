@@ -2681,56 +2681,51 @@
   <div style="background: white; border: 1px solid #dde8ff; border-radius: 0 0 1rem 1rem; padding: 2rem; margin-bottom: 3rem;">
     <p style="color: var(--muted); margin-bottom: 1.5rem;">Select one or more topic groups, then generate a question. Answer it, and the AI will grade you!</p>
 
-    <!-- Topic cards -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.65rem; margin-bottom: 1.5rem;" id="quiz-topic-grid">
-      <div class="quiz-topic-card selected" data-value="1" style="--card-color:#3b6cf7;" onclick="toggleTopic(this)">
-        <div class="qtc-top">📚</div>
-        <div class="qtc-num">Group 1</div>
-        <div class="qtc-name">Polynomials Basics</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="2" style="--card-color:#1a9e78;" onclick="toggleTopic(this)">
-        <div class="qtc-top">✖️</div>
-        <div class="qtc-num">Group 2</div>
-        <div class="qtc-name">Multiplying Polynomials</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)">
-        <div class="qtc-top">📉</div>
-        <div class="qtc-num">Group 3</div>
-        <div class="qtc-name">Graphing Quadratics</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)">
-        <div class="qtc-top">🎯</div>
-        <div class="qtc-num">Group 4</div>
-        <div class="qtc-name">Solving Quadratics</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="5" style="--card-color:#c78f00;" onclick="toggleTopic(this)">
-        <div class="qtc-top">🌍</div>
-        <div class="qtc-num">Group 5</div>
-        <div class="qtc-name">Word Problems</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="6" style="--card-color:#b03abf;" onclick="toggleTopic(this)">
-        <div class="qtc-top">🌀</div>
-        <div class="qtc-num">Group 6</div>
-        <div class="qtc-name">Complex &amp; Imaginary</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)">
-        <div class="qtc-top">🔵</div>
-        <div class="qtc-num">Group 7</div>
-        <div class="qtc-name">Circles &amp; Parabolas</div>
-        <div class="qtc-check">✓</div>
-      </div>
-      <div class="quiz-topic-card" data-value="8" style="--card-color:#3a8a3a;" onclick="toggleTopic(this)">
-        <div class="qtc-top">√</div>
-        <div class="qtc-num">Group 8</div>
-        <div class="qtc-name">Radicals &amp; Conjugates</div>
-        <div class="qtc-check">✓</div>
-      </div>
+    <!-- Topic cards — 33 subsection cards -->
+    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 0.5rem; margin-bottom: 1.5rem;" id="quiz-topic-grid">
+      <!-- Group 1 — blue -->
+      <div class="quiz-topic-card selected" data-value="1" style="--card-color:#3b6cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#3b6cf7,#5a82f9);">📚 1.1</div><div class="qtc-name">Intro to Polynomials</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card selected" data-value="1" style="--card-color:#3b6cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#3b6cf7,#5a82f9);">📚 1.2</div><div class="qtc-name">Simplifying &amp; Std Form</div><div class="qtc-check">✓</div></div>
+      <!-- Group 2 — teal -->
+      <div class="quiz-topic-card" data-value="2" style="--card-color:#1a9e78;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.1</div><div class="qtc-name">Monomial × Polynomial</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="2" style="--card-color:#1a9e78;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.2</div><div class="qtc-name">FOIL, Box Method</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="2" style="--card-color:#1a9e78;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.3</div><div class="qtc-name">Special Products</div><div class="qtc-check">✓</div></div>
+      <!-- Group 3 — violet -->
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.1</div><div class="qtc-name">Graphing at Origin</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.2</div><div class="qtc-name">Domain, Range &amp; Compare</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.3</div><div class="qtc-name">Vertex Form &amp; Transforms</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.4</div><div class="qtc-name">Identifying Quadratics</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.5</div><div class="qtc-name">Graphing Using Zeros</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="3" style="--card-color:#7c3cf7;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.6</div><div class="qtc-name">Graphing Std Form</div><div class="qtc-check">✓</div></div>
+      <!-- Group 4 — red -->
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.1</div><div class="qtc-name">Zero Product Property</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.2</div><div class="qtc-name">Distributive + ZPP</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.3</div><div class="qtc-name">Factoring w/ Variables</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.4</div><div class="qtc-name">Special Factoring</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.5</div><div class="qtc-name">Factoring to Solve</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.6</div><div class="qtc-name">Square Root Method</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.7</div><div class="qtc-name">Completing the Square</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.8</div><div class="qtc-name">Quadratic Formula</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="4" style="--card-color:#c73b3b;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.9</div><div class="qtc-name">Vertex Form</div><div class="qtc-check">✓</div></div>
+      <!-- Group 5 — amber -->
+      <div class="quiz-topic-card" data-value="5" style="--card-color:#c78f00;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.1</div><div class="qtc-name">Real-World Quadratics</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="5" style="--card-color:#c78f00;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.2</div><div class="qtc-name">Quadratic Word Problems</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="5" style="--card-color:#c78f00;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.3</div><div class="qtc-name">Std Form Extra Examples</div><div class="qtc-check">✓</div></div>
+      <!-- Group 6 — magenta -->
+      <div class="quiz-topic-card" data-value="6" style="--card-color:#b03abf;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.1</div><div class="qtc-name">Complex Numbers</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="6" style="--card-color:#b03abf;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.2</div><div class="qtc-name">Powers of i</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="6" style="--card-color:#b03abf;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.3</div><div class="qtc-name">Imaginary Solutions</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="6" style="--card-color:#b03abf;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.4</div><div class="qtc-name">The Discriminant</div><div class="qtc-check">✓</div></div>
+      <!-- Group 7 — ocean -->
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.1</div><div class="qtc-name">Circles (12.1)</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.2</div><div class="qtc-name">Completing Sq — Circles</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.3</div><div class="qtc-name">Parabolas Focus &amp; Directrix</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.4</div><div class="qtc-name">Parabola Eq from F&amp;D</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.5</div><div class="qtc-name">Linear-Quadratic Systems</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="7" style="--card-color:#1a8ab0;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.6</div><div class="qtc-name">Area &amp; Circumference</div><div class="qtc-check">✓</div></div>
+      <!-- Group 8 — forest -->
+      <div class="quiz-topic-card" data-value="8" style="--card-color:#3a8a3a;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#3a8a3a,#4db04d);">√ 8.1</div><div class="qtc-name">Simplifying Square Roots</div><div class="qtc-check">✓</div></div>
+      <div class="quiz-topic-card" data-value="8" style="--card-color:#3a8a3a;" onclick="toggleTopic(this)"><div class="qtc-num" style="background:linear-gradient(90deg,#3a8a3a,#4db04d);">√ 8.2</div><div class="qtc-name">Conjugates</div><div class="qtc-check">✓</div></div>
     </div>
 
     <button onclick="generateQuiz()" id="quiz-gen-btn" style="background: linear-gradient(135deg, #1a2a4a, #3b6cf7); color: white; border: none; padding: 0.9rem 2rem; border-radius: 100px; font-size: 1rem; font-weight: 700; cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity 0.2s;">
@@ -2786,39 +2781,52 @@
   <style>
     .quiz-topic-card {
       background: white;
-      border: 2.5px solid #dde8ff;
-      border-radius: 0.9rem;
-      padding: 0.8rem 0.75rem 0.7rem;
+      border: 2px solid #dde8ff;
+      border-radius: 0.7rem;
+      overflow: hidden;
       cursor: pointer;
-      transition: all 0.18s;
+      transition: all 0.15s;
       user-select: none;
       position: relative;
-      text-align: center;
     }
     .quiz-topic-card:hover {
       border-color: var(--card-color);
       transform: translateY(-2px);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .quiz-topic-card.selected {
       border-color: var(--card-color);
-      background: color-mix(in srgb, var(--card-color) 8%, white);
+      background: color-mix(in srgb, var(--card-color) 7%, white);
     }
-    .qtc-top { font-size: 1.5rem; margin-bottom: 0.25rem; }
-    .qtc-num { font-size: 0.6rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--card-color); margin-bottom: 0.2rem; }
-    .qtc-name { font-size: 0.78rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+    .qtc-num {
+      padding: 0.3rem 0.5rem;
+      font-size: 0.6rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: white;
+    }
+    .qtc-name {
+      padding: 0.35rem 0.5rem 0.4rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
     .qtc-check {
-      position: absolute; top: 0.45rem; right: 0.55rem;
-      font-size: 0.7rem; font-weight: 900;
+      position: absolute; top: 0.3rem; right: 0.35rem;
+      font-size: 0.55rem; font-weight: 900;
       color: white;
       background: var(--card-color);
       border-radius: 100px;
-      width: 16px; height: 16px;
+      width: 14px; height: 14px;
       display: none;
       align-items: center; justify-content: center;
     }
     .quiz-topic-card.selected .qtc-check { display: flex; }
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
+      #quiz-topic-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    }
+    @media (max-width: 450px) {
       #quiz-topic-grid { grid-template-columns: repeat(2, 1fr) !important; }
     }
   </style>
