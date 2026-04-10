@@ -236,50 +236,56 @@
       padding: 2rem 2rem 2rem;
     }
 
-    /* TOC grid of small cards */
+    /* TOC groups */
     .toc-wrapper {
       max-width: 1100px;
       margin: 2rem auto;
       padding: 0 1.5rem;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.65rem;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-    .toc-card {
+    .toc-group {
       background: white;
-      border-radius: 0.85rem;
-      border: 2px solid #dde8ff;
+      border-radius: 1rem;
+      border: 1px solid #dde8ff;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      text-decoration: none;
-      transition: transform 0.15s, box-shadow 0.15s;
     }
-    .toc-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(59,108,247,0.13);
-    }
-    .toc-card-top {
-      padding: 0.5rem 0.75rem 0.4rem;
-      font-size: 0.62rem;
-      font-weight: 800;
-      letter-spacing: 0.1em;
+    .toc-group-header {
+      padding: 0.75rem 1rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
       color: white;
+      line-height: 1.4;
     }
-    .toc-card-body {
-      padding: 0.55rem 0.75rem 0.65rem;
-      font-size: 0.78rem;
-      font-weight: 600;
+    .toc-group-links {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5rem 1rem 0.75rem;
+    }
+    .toc-group-links a {
+      text-decoration: none;
       color: var(--accent);
-      line-height: 1.35;
-      flex: 1;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.2rem 0.1rem;
+      display: block;
+      border-bottom: 1px solid #f0f4ff;
+      transition: color 0.2s;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+    .toc-group-links a:hover { color: var(--blue); }
     @media (max-width: 900px) {
-      .toc-wrapper { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 560px) {
       .toc-wrapper { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .toc-wrapper { grid-template-columns: 1fr; }
     }
 
   </style>
@@ -310,51 +316,97 @@
 
 <!-- TOC -->
 <div class="toc-wrapper">
-  <!-- GROUP 1 — blue -->
-  <a href="#intropolynomials" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#3b6cf7,#5a82f9);">📚 1.1</div><div class="toc-card-body">Intro to Polynomials</div></a>
-  <a href="#simplifypolynomials" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#3b6cf7,#5a82f9);">📚 1.2</div><div class="toc-card-body">Simplifying &amp; Standard Form</div></a>
-  <!-- GROUP 2 — teal -->
-  <a href="#mod51day1" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.1</div><div class="toc-card-body">Monomial × Polynomial</div></a>
-  <a href="#polynomials" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.2</div><div class="toc-card-body">FOIL, Distribution, Box Method</div></a>
-  <a href="#mod53" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a9e78,#22c49a);">✖️ 2.3</div><div class="toc-card-body">Special Products (5.3)</div></a>
-  <!-- GROUP 3 — violet -->
-  <a href="#mod61day1" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.1</div><div class="toc-card-body">Graphing at Origin (6.1 D1)</div></a>
-  <a href="#mod61day2" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.2</div><div class="toc-card-body">Domain, Range &amp; Comparison</div></a>
-  <a href="#mod62" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.3</div><div class="toc-card-body">Vertex Form &amp; Transformations</div></a>
-  <a href="#mod63day1" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.4</div><div class="toc-card-body">Identifying Quadratics (6.3)</div></a>
-  <a href="#graphzeros" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.5</div><div class="toc-card-body">Graphing Using Zeros</div></a>
-  <a href="#standardgraph" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#7c3cf7,#9b62f9);">📉 3.6</div><div class="toc-card-body">Graphing in Standard Form</div></a>
-  <!-- GROUP 4 — red -->
-  <a href="#zeroproduct" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.1</div><div class="toc-card-body">Zero Product Property</div></a>
-  <a href="#distrib" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.2</div><div class="toc-card-body">Distributive + Zero Product</div></a>
-  <a href="#factoringvars" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.3</div><div class="toc-card-body">Factoring w/ Variables &amp; Grouping</div></a>
-  <a href="#specialfactors" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.4</div><div class="toc-card-body">Special Factoring Patterns</div></a>
-  <a href="#factorsolve" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.5</div><div class="toc-card-body">Factoring to Solve</div></a>
-  <a href="#sqrtmethod" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.6</div><div class="toc-card-body">Square Root Method</div></a>
-  <a href="#ctss" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.7</div><div class="toc-card-body">Completing the Square to Solve</div></a>
-  <a href="#quadformula" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.8</div><div class="toc-card-body">Quadratic Formula</div></a>
-  <a href="#vertexform" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c73b3b,#e05555);">🎯 4.9</div><div class="toc-card-body">Vertex Form</div></a>
-  <!-- GROUP 5 — amber -->
-  <a href="#quadratic" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.1</div><div class="toc-card-body">Real-World Quadratics</div></a>
-  <a href="#wordproblems" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.2</div><div class="toc-card-body">Quadratic Word Problems</div></a>
-  <a href="#stdformword" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#c78f00,#e0a800);">🌍 5.3</div><div class="toc-card-body">Standard Form Extra Examples</div></a>
-  <!-- GROUP 6 — magenta -->
-  <a href="#complex" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.1</div><div class="toc-card-body">Complex Numbers</div></a>
-  <a href="#imaginary" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.2</div><div class="toc-card-body">Powers of i</div></a>
-  <a href="#imagsolve" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.3</div><div class="toc-card-body">Imaginary Solutions</div></a>
-  <a href="#discdetail" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#b03abf,#cc55d6);">🌀 6.4</div><div class="toc-card-body">The Discriminant</div></a>
-  <!-- GROUP 7 — ocean -->
-  <a href="#circles" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.1</div><div class="toc-card-body">Circles (12.1)</div></a>
-  <a href="#completing" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.2</div><div class="toc-card-body">Completing Square — Circles</div></a>
-  <a href="#parabolas" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.3</div><div class="toc-card-body">Parabolas Focus &amp; Directrix</div></a>
-  <a href="#focusdirectrix2" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.4</div><div class="toc-card-body">Parabola Eq from Focus &amp; Directrix</div></a>
-  <a href="#systems" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.5</div><div class="toc-card-body">Linear-Quadratic Systems</div></a>
-  <a href="#arccircumference" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a8ab0,#26a8d4);">🔵 7.6</div><div class="toc-card-body">Area &amp; Circumference (20.2)</div></a>
-  <!-- GROUP 8 — forest -->
-  <a href="#simplifyroots" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#3a8a3a,#4db04d);">√ 8.1</div><div class="toc-card-body">Simplifying Square Roots</div></a>
-  <a href="#conjugates" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#3a8a3a,#4db04d);">√ 8.2</div><div class="toc-card-body">Conjugates</div></a>
-  <!-- QUICK REF -->
-  <a href="#quickref" class="toc-card"><div class="toc-card-top" style="background:linear-gradient(90deg,#1a2a4a,#2a3a5a);">⚡ REF</div><div class="toc-card-body">Quick Reference Cheat Sheet</div></a>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #3b6cf7, #5a82f9);">📚 Group 1 — Polynomials — The Basics</div>
+    <div class="toc-group-links">
+      <a href="#intropolynomials">1.1 · Intro to Polynomials</a>
+      <a href="#simplifypolynomials">1.2 · Simplifying &amp; Standard Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #1a9e78, #22c49a);">✖️ Group 2 — Multiplying Polynomials</div>
+    <div class="toc-group-links">
+      <a href="#mod51day1">2.1 · Monomial × Polynomial (5.1 D1)</a>
+      <a href="#polynomials">2.2 · FOIL, Distribution, Box Method</a>
+      <a href="#mod53">2.3 · Special Products (5.3)</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #7c3cf7, #9b62f9);">📉 Group 3 — Graphing Quadratics</div>
+    <div class="toc-group-links">
+      <a href="#mod61day1">3.1 · Graphing at Origin (6.1 D1)</a>
+      <a href="#mod61day2">3.2 · Domain, Range &amp; Comparison</a>
+      <a href="#mod62">3.3 · Vertex Form &amp; Transformations</a>
+      <a href="#mod63day1">3.4 · Identifying Quadratics (6.3)</a>
+      <a href="#graphzeros">3.5 · Graphing Using Zeros</a>
+      <a href="#standardgraph">3.6 · Graphing in Standard Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #c73b3b, #e05555);">🎯 Group 4 — Solving Quadratics</div>
+    <div class="toc-group-links">
+      <a href="#zeroproduct">4.1 · Zero Product Property</a>
+      <a href="#distrib">4.2 · Distributive + Zero Product</a>
+      <a href="#factoringvars">4.3 · Factoring w/ Variables</a>
+      <a href="#specialfactors">4.4 · Special Factoring Patterns</a>
+      <a href="#factorsolve">4.5 · Factoring to Solve</a>
+      <a href="#sqrtmethod">4.6 · Square Root Method</a>
+      <a href="#ctss">4.7 · Completing the Square</a>
+      <a href="#quadformula">4.8 · Quadratic Formula</a>
+      <a href="#vertexform">4.9 · Vertex Form</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #c78f00, #e0a800);">🌍 Group 5 — Word Problems</div>
+    <div class="toc-group-links">
+      <a href="#quadratic">5.1 · Real-World Quadratics</a>
+      <a href="#wordproblems">5.2 · Quadratic Word Problems</a>
+      <a href="#stdformword">5.3 · Standard Form Extra Examples</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #b03abf, #cc55d6);">🌀 Group 6 — Complex &amp; Imaginary Numbers</div>
+    <div class="toc-group-links">
+      <a href="#complex">6.1 · Complex Numbers</a>
+      <a href="#imaginary">6.2 · Powers of i</a>
+      <a href="#imagsolve">6.3 · Imaginary Solutions</a>
+      <a href="#discdetail">6.4 · The Discriminant</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #1a8ab0, #26a8d4);">🔵 Group 7 — Circles &amp; Parabolas</div>
+    <div class="toc-group-links">
+      <a href="#circles">7.1 · Circles (12.1)</a>
+      <a href="#completing">7.2 · Completing Square — Circles</a>
+      <a href="#parabolas">7.3 · Parabolas Focus &amp; Directrix</a>
+      <a href="#focusdirectrix2">7.4 · Parabola Eq from Focus &amp; Directrix</a>
+      <a href="#systems">7.5 · Linear-Quadratic Systems</a>
+      <a href="#arccircumference">7.6 · Area &amp; Circumference (20.2)</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #3a8a3a, #4db04d);">√ Group 8 — Radicals &amp; Conjugates</div>
+    <div class="toc-group-links">
+      <a href="#simplifyroots">8.1 · Simplifying Square Roots</a>
+      <a href="#conjugates">8.2 · Conjugates</a>
+    </div>
+  </div>
+
+  <div class="toc-group">
+    <div class="toc-group-header" style="background: linear-gradient(90deg, #1a2a4a, #2a3a5a);">⚡ Quick Reference</div>
+    <div class="toc-group-links">
+      <a href="#quickref">⚡ All Key Formulas (Cheat Sheet)</a>
+    </div>
+  </div>
+
 </div>
 
 <main>
