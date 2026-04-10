@@ -2926,6 +2926,16 @@
       }
 
       document.getElementById('quiz-check-btn').disabled = true;
+
+      // For multiple choice — grade instantly, no AI needed!
+      if (currentQuestion.type === 'multiple_choice') {
+        const normalize = s => (s||'').toLowerCase().replace(/\s+/g,'').replace(/^[a-d][).]/i,'');
+        const isCorrect = normalize(userAnswer) === normalize(currentAnswer);
+        showResult(isCorrect, isCorrect ? 'Correct! 🎉' : 'Not quite!', `Correct answer: ${currentAnswer}`);
+        document.getElementById('quiz-check-btn').disabled = false;
+        return;
+      }
+
       document.getElementById('quiz-check-btn').textContent = 'Grading...';
 
       try {
@@ -2941,38 +2951,36 @@
         });
         const data = await res.json();
 
-        const result = document.getElementById('quiz-result');
-        result.style.display = 'block';
-
-        if (data.correct) {
-          correctCount++;
-          result.style.background = '#e8f7ee';
-          result.style.border = '2px solid #1a7a4a';
-          document.getElementById('quiz-result-icon').textContent = '🎉';
-          document.getElementById('quiz-result-feedback').style.color = '#1a7a4a';
-          document.getElementById('quiz-result-feedback').textContent = data.feedback || 'Correct! Great job!';
-        } else {
-          wrongCount++;
-          result.style.background = '#faeaea';
-          result.style.border = '2px solid #7a1a1a';
-          document.getElementById('quiz-result-icon').textContent = '❌';
-          document.getElementById('quiz-result-feedback').style.color = '#7a1a1a';
-          document.getElementById('quiz-result-feedback').textContent = data.feedback || 'Not quite — review the explanation below.';
-        }
-
-        document.getElementById('quiz-result-explanation').textContent = data.explanation || `Correct answer: ${currentAnswer}`;
-        document.getElementById('quiz-correct-count').textContent = correctCount;
-        document.getElementById('quiz-wrong-count').textContent = wrongCount;
-
+        showResult(data.correct, data.feedback, data.explanation || `Correct answer: ${currentAnswer}`);
       } catch(e) {
-        document.getElementById('quiz-result').style.display = 'block';
-        document.getElementById('quiz-result-icon').textContent = '⚠️';
-        document.getElementById('quiz-result-feedback').textContent = 'Could not grade. Try again.';
-        document.getElementById('quiz-result-explanation').textContent = `Correct answer was: ${currentAnswer}`;
+        showResult(false, 'Could not grade. Try again.', `Correct answer: ${currentAnswer}`);
       }
 
       document.getElementById('quiz-check-btn').disabled = false;
       document.getElementById('quiz-check-btn').textContent = '✅ Check Answer';
+    }
+
+    function showResult(correct, feedback, explanation) {
+      const result = document.getElementById('quiz-result');
+      result.style.display = 'block';
+      if (correct) {
+        correctCount++;
+        result.style.background = '#e8f7ee';
+        result.style.border = '2px solid #1a7a4a';
+        document.getElementById('quiz-result-icon').textContent = '🎉';
+        document.getElementById('quiz-result-feedback').style.color = '#1a7a4a';
+        document.getElementById('quiz-result-feedback').textContent = feedback || 'Correct! Great job!';
+      } else {
+        wrongCount++;
+        result.style.background = '#faeaea';
+        result.style.border = '2px solid #7a1a1a';
+        document.getElementById('quiz-result-icon').textContent = '❌';
+        document.getElementById('quiz-result-feedback').style.color = '#7a1a1a';
+        document.getElementById('quiz-result-feedback').textContent = feedback || 'Not quite!';
+      }
+      document.getElementById('quiz-result-explanation').textContent = explanation;
+      document.getElementById('quiz-correct-count').textContent = correctCount;
+      document.getElementById('quiz-wrong-count').textContent = wrongCount;
     }
 
     function resetScore() {
